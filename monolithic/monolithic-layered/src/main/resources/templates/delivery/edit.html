@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/template.html}">
+<head>
+    <title>Delivery</title>
+</head>
+<body>
+<section layout:fragment="custom-content">
+    <h1>Edit Delivery</h1>
+
+    <form th:object="${delivery}" method="post" th:action="@{/delivery}">
+        <input type="hidden" th:field="*{id}" />
+
+        <div class="row">
+            <label class="col-sm-2 col-form-label">Address Line</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control"
+                       th:field="*{addressLine}" />
+            </div>
+        </div>
+
+        <div class="row">
+            <label class="col-sm-2 col-form-label">Status</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control"
+                       th:field="*{status}" />
+            </div>
+        </div>
+
+        <div class="row">
+            <label class="col-sm-2 col-form-label">Pharmacy</label>
+            <div class="col-sm-10">
+                <select th:field="*{pharmacyId}" class="form-select">
+                    <option th:each="item : ${delivery.pharmacies}"
+                            th:value="${item.id}" th:text="${item.value}"></option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <table class="table">
+                    <tr>
+                        <th>Drug</th>
+                        <th>Amount</th>
+                    </tr>
+
+                    <tr th:each="line : ${delivery.content}">
+                        <td>
+                            <select th:value="${line.drugId}" class="form-select">
+                                <option th:each="item : ${line.drugs}"
+                                        th:selected="${line.drugId == item.id}"
+                                        th:value="${item.id}" th:text="${item.value}"></option>
+                            </select>
+                        </td>
+                        <td th:text="${line.amount}" />
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <a th:href="@{/delivery}" class="btn btn-link">Back</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+</section>
+</body>
+</html>

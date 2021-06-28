@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.epam.training</groupId>
+  <artifactId>microservices</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>microservices</name>
+  <packaging>pom</packaging>
+
+  <description>
+    This is a top-level project which contains number of the subprojects with different
+    implementations of the very similar application - an extended Clinic project. 
+
+    See the submodules and their descriptions to know more. 
+  </description>
+
+  <modules>
+    <module>monolithic</module>
+  </modules>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>11</java.version>
+    <downloadSources>true</downloadSources>
+    <downloadJavadocs>true</downloadJavadocs>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+            <release>11</release>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

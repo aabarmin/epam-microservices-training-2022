@@ -1,0 +1,46 @@
+[
+  {
+    "name": "Twimm",
+    "address": "33012 Weeping Birch Street",
+    "drugs": [
+      {
+        "drugName": "Acetylcholinesterase inhibitors",
+        "amount": 20
+      },
+      {
+        "drugName": "NMDA receptor antagonists",
+        "amount": 15
+      },
+      {
+        "drugName": "Aducanumab",
+        "amount": 10
+      }
+    ],
+    "orders": [
+      {
+        "address": "1 Cherokee Hill",
+        "status": "IN_QUEUE",
+        "content": [
+          {
+            "drug": "Acetylcholinesterase inhibitors",
+            "amount": 3
+          }
+        ]
+      },
+      {
+        "address": "4545 Derek Junction",
+        "status": "COMPLETED",
+        "content": [
+          {
+            "drug": "NMDA receptor antagonists",
+            "amount": 3
+          },
+          {
+            "drug": "Aducanumab",
+            "amount": 5
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/template.html}">
+<head>
+    <title>${pageTitle}</title>
+</head>
+<body>
+<section layout:fragment="custom-content">
+    <h1 th:text="${pageTitle}" />
+
+    <section>
+        <table class="table">
+            <tr>
+                <th th:each="column : ${templateParams.columns}"
+                    th:text="${column.title}" />
+            </tr>
+
+            <tr th:each="item : ${items}">
+                <th:block th:each="column : ${templateParams.columns}">
+                    <td th:if="${column.type == 'TEXT'}"
+                        th:text="${column.getValue(item)}" />
+
+                    <td th:if="${column.type == 'LINK'}">
+                        <a th:href="${column.getLink(item)}"
+                           th:text="${column.getValue(item)}" />
+                    </td>
+                </th:block>
+            </tr>
+        </table>
+    </section>
+</section>
+</body>
+</html>
