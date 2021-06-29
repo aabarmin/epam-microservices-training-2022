@@ -1,0 +1,10 @@
+package com.epam.training.microservices.monolithic.jpa.repository;
+
+import com.epam.training.microservices.monolithic.jpa.entity.recipie.DoctorEntity;
+import com.epam.training.microservices.monolithic.model.recipie.Doctor;
+import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface DoctorJpaRepository extends JpaRepository<DoctorEntity, Long> {
+  Optional<Doctor> findDoctorByFirstNameAndLastName(String firrstName, String lastName);
+}
