@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.epam.training</groupId>
-  <artifactId>microservices</artifactId>
+  <artifactId>microservices-training</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <packaging>pom</packaging>
