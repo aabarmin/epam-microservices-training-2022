@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Twimm",
+    "address": "33012 Weeping Birch Street",
+    "drugs": [
+      {
+        "drugName": "Acetylcholinesterase inhibitors",
+        "amount": 20
+      },
+      {
+        "drugName": "NMDA receptor antagonists",
+        "amount": 15
+      },
+      {
+        "drugName": "Aducanumab",
+        "amount": 10
+      }
+    ]
+  }
+]
