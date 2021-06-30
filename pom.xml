@@ -19,6 +19,7 @@
 
   <modules>
     <module>monolithic</module>
+    <module>microservices</module>
   </modules>
 
   <properties>
