@@ -1,0 +1,25 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: recipe-service
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:h2:mem:microservice-recipes
+  rabbitmq:
+    host: localhost
+    port: 5672
+  cloud:
+    stream:
+      bindings:
+        deliveryNotificator-out-0:
+          destination: recipes
+          required-groups: main
+      source: deliveryNotificator
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
