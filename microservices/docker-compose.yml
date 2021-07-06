@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  service-discovery:
+    image: microservices/service-discovery:latest
+    environment:
+      - IS_SERVICE_DISCOVERY=true
+    ports:
+      - 8081:8081
+
+  service-delivery:
+    image: microservices/delivery:latest
+
+  service-drugs:
+    image: microservices/drugs:latest
+
+  service-pharmacies:
+    image: microservices/pharmacies:latest
+
+  service-recipes:
+    image: microservices/recipes:latest

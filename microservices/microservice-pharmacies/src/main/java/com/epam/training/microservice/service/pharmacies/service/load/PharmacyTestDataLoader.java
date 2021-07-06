@@ -2,7 +2,7 @@ package com.epam.training.microservice.service.pharmacies.service.load;
 
 import com.epam.training.microservice.service.pharmacies.model.Pharmacy;
 import com.epam.training.microservice.service.pharmacies.model.PharmacyAvailable;
-import com.epam.training.microservice.service.pharmacies.repository.DrugServiceClient;
+import com.epam.training.microservice.service.pharmacies.service.drug.DrugService;
 import com.epam.training.microservice.service.pharmacies.repository.PharmacyRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,6 +10,7 @@ import lombok.Cleanup;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -23,7 +24,7 @@ import java.util.stream.Collectors;
 
 @Component
 @Profile("dev")
-public class PharmacyTestDataLoader implements ApplicationListener<ContextRefreshedEvent> {
+public class PharmacyTestDataLoader implements CommandLineRunner {
     @Value("classpath:test-data/pharmacy.json")
     private Resource pharmacyResource;
 
@@ -34,11 +35,11 @@ public class PharmacyTestDataLoader implements ApplicationListener<ContextRefres
     private PharmacyRepository pharmacyRepository;
 
     @Autowired
-    private DrugServiceClient drugClient;
+    private DrugService drugClient;
 
     @Override
     @SneakyThrows
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+    public void run(String... args) {
         @Cleanup final InputStream contentStream = pharmacyResource.getInputStream();
         objectMapper
                 .readValue(contentStream, new TypeReference<List<PharmacyLoadModel>>() {})
