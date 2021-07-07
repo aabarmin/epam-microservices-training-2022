@@ -6,16 +6,26 @@ services:
     environment:
       - IS_SERVICE_DISCOVERY=true
     ports:
-      - 8081:8081
+      - 18081:8081
 
   service-delivery:
     image: microservices/delivery:latest
+    ports:
+      - 18082:8082
 
   service-drugs:
     image: microservices/drugs:latest
+    deploy:
+      replicas: 2
+    ports:
+      - 18083:8083
 
   service-pharmacies:
     image: microservices/pharmacies:latest
+    ports:
+      - 18084:8084
 
   service-recipes:
     image: microservices/recipes:latest
+    ports:
+      - 18085:8085

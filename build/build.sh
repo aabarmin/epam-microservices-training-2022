@@ -35,6 +35,6 @@ docker build \
     -f ./Dockerfile ..
 
 docker build \
-    --build-arg module_path=microservices/microservice-recipes \
+    --build-arg module_path=microservices/microservice-recipies \
     -t microservices/recipes:latest \
     -f ./Dockerfile ..
