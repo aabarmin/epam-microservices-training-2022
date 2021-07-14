@@ -12,7 +12,8 @@ import java.util.Optional;
 @Component
 public class DrugServiceClient {
     public Optional<Long> getDrugIdByName(String drugName) {
-        final Traverson traverson = new Traverson(URI.create("http://localhost:8082/"), MediaTypes.HAL_JSON);
+        final Traverson traverson = new Traverson(URI.create("http://localhost:8083/"),
+            MediaTypes.HAL_JSON);
 
         final DrugModel record = traverson
                 .follow("drugs", "search", "findDrugByName")

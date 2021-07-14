@@ -33,7 +33,7 @@ public class Recipe {
     /**
      * A content of the recipie. 
      */
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipe", cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "recipe", cascade = CascadeType.ALL)
     private Set<RecipeLine> lines = new HashSet<>();
 
     /**
