@@ -1,0 +1,21 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 15672
+  cloud:
+    function:
+      definition: confirmOrder,rejectOrder,startDelivery,completeDelivery
+    stream:
+      bindings:
+        confirmOrder-in-0:
+          destination: orders-confirm
+          group: main
+        rejectOrder-in-0:
+          destination: orders-reject
+          group: main
+        startDelivery-in-0:
+          destination: orders-start
+          group: main
+        completeDelivery-in-0:
+          destination: orders-complete
+          group: main
