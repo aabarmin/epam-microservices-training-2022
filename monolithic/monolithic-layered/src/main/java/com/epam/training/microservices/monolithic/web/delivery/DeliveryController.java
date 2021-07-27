@@ -41,7 +41,7 @@ public class DeliveryController implements ViewAllSupport<Delivery> {
     return ViewAllTemplateParams.builder()
         .title("Delivery")
         .column(new LinkColumnModel<>("Address", Delivery::getAddressLine,
-            d -> "/delivery/" + d.getId()))
+            d -> "/com.epam.training.service.delivery/" + d.getId()))
         .column(new TextColumnModel<Delivery>("Status", d -> d.getStatus().name()))
         .build();
   }

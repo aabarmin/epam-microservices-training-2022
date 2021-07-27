@@ -2,7 +2,7 @@ package com.epam.training.microservices.services.state.machine.delivery.model;
 
 public enum DeliveryState {
   /**
-   * The order is confirmed by a user, need to start a delivery.
+   * The order is confirmed by a user, need to start a com.epam.training.service.delivery.
    */
   CONFIRMED,
   /**
@@ -10,7 +10,7 @@ public enum DeliveryState {
    */
   NOT_AVAILABLE,
   /**
-   * Available, the delivery has been started.
+   * Available, the com.epam.training.service.delivery has been started.
    */
   DELIVERY,
   /**

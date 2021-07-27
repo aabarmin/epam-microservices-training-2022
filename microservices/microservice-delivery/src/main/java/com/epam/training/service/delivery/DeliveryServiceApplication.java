@@ -2,7 +2,6 @@ package com.epam.training.service.delivery;
 
 import com.epam.training.service.delivery.model.message.RecipeModel;
 import com.epam.training.service.delivery.service.RecipeProcessor;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

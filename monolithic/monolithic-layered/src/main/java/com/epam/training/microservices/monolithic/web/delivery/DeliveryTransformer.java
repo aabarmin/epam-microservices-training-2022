@@ -26,7 +26,7 @@ public class DeliveryTransformer {
   @Transactional
   public DeliveryModel toModel(Long id) {
     final Delivery delivery = deliveryService.findOne(id)
-        .orElseThrow(() -> new RuntimeException("No delivery with id " + id));
+        .orElseThrow(() -> new RuntimeException("No com.epam.training.service.delivery with id " + id));
 
     return DeliveryModel.builder()
         .id(delivery.getId())

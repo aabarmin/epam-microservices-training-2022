@@ -2,7 +2,7 @@ package com.epam.training.microservices.services.state.machine.delivery.model;
 
 public enum DeliveryEvent {
   /**
-   * The user confirms the delivery.
+   * The user confirms the com.epam.training.service.delivery.
    */
   CONFIRM,
   /**
@@ -10,11 +10,11 @@ public enum DeliveryEvent {
    */
   REJECT,
   /**
-   * When a delivery is started.
+   * When a com.epam.training.service.delivery is started.
    */
   START_DELIVERY,
   /**
-   * When delivery is done.
+   * When com.epam.training.service.delivery is done.
    */
   END_DELIVERY;
 }
