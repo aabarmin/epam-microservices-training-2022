@@ -1,0 +1,59 @@
+plugins {
+    id 'com.epam.training.java-conventions'
+    id 'org.springframework.boot' version '2.5.3' apply false
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+}
+
+jar {
+    enabled = false
+}
+
+allprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    jar {
+        enabled = false
+    }
+
+    bootJar {
+        enabled = false
+    }
+
+    dependencies {
+        implementation('org.springframework.boot:spring-boot-starter')
+        implementation 'org.springframework.boot:spring-boot-starter'
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        testImplementation 'org.assertj:assertj-core'
+
+        ['org.projectlombok:lombok'].forEach {
+            compileOnly(it)
+            testCompileOnly(it)
+            annotationProcessor(it)
+        }
+
+        constraints {
+            implementation 'com.google.guava:guava:30.1.1-jre'
+            implementation 'org.mapstruct:mapstruct:1.4.2.Final'
+            annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.2.Final'
+            annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.1.0'
+            implementation 'org.springdoc:springdoc-openapi-ui:1.5.9'
+            implementation 'org.springdoc:springdoc-openapi-data-rest:1.5.9'
+            implementation 'com.google.code.gson:gson:2.8.7'
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}

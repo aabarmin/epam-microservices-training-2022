@@ -1,0 +1,14 @@
+plugins {
+    id 'com.epam.training.java-conventions'
+}
+
+dependencies {
+    implementation project(':monolithic:monolithic-hexagonal:monolithic-hexagonal-core')
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.mapstruct:mapstruct'
+    implementation 'com.google.guava:guava'
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding"
+    annotationProcessor "org.mapstruct:mapstruct-processor"
+}
+
+description = 'monolithic-hexagonal-persistence'

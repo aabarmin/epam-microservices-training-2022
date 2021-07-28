@@ -1,0 +1,17 @@
+plugins {
+    id 'com.epam.training.java-conventions'
+    id 'org.springframework.boot'
+}
+
+bootJar {
+    enabled = true
+    mainClass = 'com.epam.training.microservices.monolithic.MonolithicApplication'
+}
+
+dependencies {
+    implementation project(':monolithic:monolithic-hexagonal:monolithic-hexagonal-core')
+    implementation project(':monolithic:monolithic-hexagonal:monolithic-hexagonal-persistence')
+    implementation project(':monolithic:monolithic-hexagonal:monolithic-hexagonal-web')
+}
+
+description = 'monolithic-hexagonal-app'
