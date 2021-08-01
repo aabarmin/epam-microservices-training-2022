@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: micorservice-zuul
+  profiles:
+    active: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+
+zuul:
+  routes:
+    drugs:
+      path: /route-drugs/*
+      url: http://drug-service:8083/drugs

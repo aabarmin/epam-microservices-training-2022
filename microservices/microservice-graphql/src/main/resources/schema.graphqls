@@ -1,0 +1,27 @@
+type Post {
+    id: Int,
+    author: Author,
+    title: String,
+    text: String
+}
+
+type Author {
+    firstName: String,
+    lastName: String,
+}
+
+type Drug {
+    id: Int,
+    name: String,
+    description: String,
+    available: String
+}
+
+type Query {
+    allPosts: [Post]!
+    allDrugs: [Drug]!
+}
+
+type Mutation {
+    renamePost(id: Int, title: String): Post
+}

@@ -1,0 +1,18 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    active: dev
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka

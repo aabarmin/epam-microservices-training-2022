@@ -24,3 +24,7 @@ include(':microservices:microservice-delivery:delivery-app')
 include(':microservices:microservice-delivery:delivery-core')
 include(':microservices:microservice-delivery:delivery-mq')
 include(':microservices:microservice-delivery:delivery-persistence')
+
+//include(':microservices:microservice-zuul')
+include(':microservices:microservice-gateway')
+include(':microservices:microservice-graphql')

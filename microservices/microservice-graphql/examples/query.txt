@@ -1,0 +1,6 @@
+{
+    allPosts {
+        id,
+        title
+    }
+}

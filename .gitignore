@@ -32,3 +32,10 @@ target/
 .idea/
 .vscode/
 build
+
+# Gradle files
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
