@@ -7,6 +7,10 @@ bootJar {
     mainClass = 'com.epam.training.miservices.services.drugs.DrugsServiceApplication'
 }
 
+bootBuildImage {
+
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.data:spring-data-rest-hal-explorer'

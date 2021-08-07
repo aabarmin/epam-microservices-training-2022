@@ -1,0 +1,22 @@
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+filebeat.inputs:
+  - type: container
+    format: docker
+    tags: ["logs-docker"]
+    paths:
+      - '/opt/containers/*/*-json.log'
+    processors:
+      - add_docker_metadata:
+          host: "unix:///var/run/docker.sock"
+          match_source: true
+          match_source_index: 2
+
+setup.kibana:
+  host: '${KIBANA_HOST}'
+
+output.elasticsearch:
+  hosts: '${ELASTICSEARCH_HOSTS:elasticsearch:9200}'

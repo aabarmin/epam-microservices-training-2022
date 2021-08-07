@@ -1,6 +1,13 @@
 version: '3'
 
 services:
+  webapp:
+    image: microservices/graphql:latest
+    environment:
+      - IS_SERVICE_DISCOVERY=true
+    ports:
+      - 18080:8080
+
   service-discovery:
     image: microservices/service-discovery:latest
     environment:
@@ -8,10 +15,10 @@ services:
     ports:
       - 18081:8081
 
-  service-delivery:
-    image: microservices/delivery:latest
-    ports:
-      - 18082:8082
+#  service-delivery:
+#    image: microservices/delivery:latest
+#    ports:
+#      - 18082:8082
 
   service-drugs:
     image: microservices/drugs:latest

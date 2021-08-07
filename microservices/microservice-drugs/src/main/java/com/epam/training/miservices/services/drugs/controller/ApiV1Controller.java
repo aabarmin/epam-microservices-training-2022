@@ -18,6 +18,19 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApiV1Controller {
   private String serviceId;
 
+  /**
+   * /orders <- POST
+   * /orders/1 <- GET
+   * /orders/1/cancel <- GET
+   * /orders/1/items <- POST/PUT/PATCH
+   * /orders/1/items/1/cancel <- GET
+   *
+   * /API <- POST
+   *
+   * /orders <- ?projection=id,title,name,description
+   * /orders/1/items <- ?projection=order.id,item.title
+   */
+
   @PostConstruct
   public void init() {
     serviceId = UUID.randomUUID().toString();

@@ -2,9 +2,9 @@ FROM amazoncorretto:11
 LABEL maintainer="Aleksandr_Barmin@epam.com"
 
 ARG module_path
-COPY $module_path/target/*.jar /opt/app.jar
+COPY ../$module_path/build/libs/*.jar /opt/app.jar
 
-ADD build/entrypoint.sh /opt/entrypoint.sh
+ADD buildscripts/entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh
 RUN sed -i.bak 's/\r$//' /opt/entrypoint.sh
 

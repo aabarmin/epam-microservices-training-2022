@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.5.0
+    environment:
+      - XPACK_REPORTING_CSV_MAXSIZEBYTES=1073741824
+    ports:
+      - 5601:5601
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    environment:
+      - discovery.type=single-node
+    ports:
+      - 9200:9200
+    volumes:
+      - elastic_data:/usr/share/elasticsearch/data
+
+  filebeat:
+    image: microservices/filebeat
+    user: root
+    environment:
+      - KIBANA_HOST=kibana:5601
+      - ELASTICSEARCH_HOSTS=["elasticsearch:9200"]
+    volumes:
+      - /var/lib/docker/containers:/opt/containers:ro
+      - /var/lib/docker:/var/lib/docker:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  elastic_data:

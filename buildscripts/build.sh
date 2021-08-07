@@ -11,7 +11,9 @@
 ### The build starts here ###
 
 # Building all the code with Apache Maven
-mvn clean package -f ../pom.xml
+CURRENT=$(pwd)
+cd .. && ./gradlew build
+cd ${CURRENT}
 
 # Building docker images and publish them
 docker build \
@@ -19,10 +21,10 @@ docker build \
     -t microservices/service-discovery:latest \
     -f ./Dockerfile ..
 
-docker build \
-    --build-arg module_path=microservices/microservice-delivery \
-    -t microservices/delivery:latest \
-    -f ./Dockerfile ..
+#docker build \
+#    --build-arg module_path=microservices/microservice-delivery \
+#    -t microservices/delivery:latest \
+#    -f ./Dockerfile ..
 
 docker build \
     --build-arg module_path=microservices/microservice-drugs \
@@ -37,4 +39,9 @@ docker build \
 docker build \
     --build-arg module_path=microservices/microservice-recipies \
     -t microservices/recipes:latest \
+    -f ./Dockerfile ..
+
+docker build \
+    --build-arg module_path=microservices/microservice-graphql \
+    -t microservices/graphql:latest \
     -f ./Dockerfile ..

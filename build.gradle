@@ -33,6 +33,7 @@ subprojects {
         developmentOnly 'org.springframework.boot:spring-boot-devtools'
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         implementation 'org.springframework.boot:spring-boot-starter-actuator'
+        runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
         testImplementation 'org.assertj:assertj-core'
 
         ['org.projectlombok:lombok'].forEach {
@@ -55,4 +56,20 @@ subprojects {
     test {
         useJUnitPlatform()
     }
+}
+
+/**
+ * This task builds all the apps into the Docker images using Buildpacks.
+ */
+task buildMicroservices() {
+    dependsOn(
+            'microservices:microservice-drugs:bootBuildImage',
+            'microservices:microservice-gateway:bootBuildImage',
+            'microservices:microservice-graphql:bootBuildImage',
+            'microservices:microservice-pharmacies:bootBuildImage',
+            'microservices:microservice-recipies:bootBuildImage',
+            'microservices:microservice-service-discovery:bootBuildImage',
+            'microservices:microservice-state-machine:bootBuildImage',
+            'microservices:microservice-delivery:delivery-app:bootBuildImage'
+    )
 }

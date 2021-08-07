@@ -13,3 +13,10 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8081/eureka
+
+management:
+  endpoints:
+    enabled-by-default: on
+    web:
+      exposure:
+        include: health,beans

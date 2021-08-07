@@ -8,6 +8,7 @@ type Post {
 type Author {
     firstName: String,
     lastName: String,
+    posts: [Post]!
 }
 
 type Drug {
