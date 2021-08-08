@@ -1,3 +1,12 @@
+server:
+  port: ${SERVER_PORT:8080}
+
 drug:
   service:
-    url: http://localhost:8083
+    url: ${DRUG_SERVIE_URL:http://localhost:8083}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

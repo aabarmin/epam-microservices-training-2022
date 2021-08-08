@@ -1,5 +1,5 @@
 server:
-  port: 8084
+  port: ${SERVER_PORT:8084}
 
 spring:
   application:
@@ -12,8 +12,14 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8081/eureka
+      defaultZone: ${EUREKA_URL:http://localhost:8081/eureka}
 
 feign:
   circuitbreaker:
     enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

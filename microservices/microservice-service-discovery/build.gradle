@@ -7,6 +7,10 @@ bootJar {
     mainClass = 'com.epam.training.microservices.service.discovery.ServiceDiscoveryApplication'
 }
 
+bootBuildImage {
+    builder = "docker.io/paketobuildpacks/builder:full"
+}
+
 dependencies {
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
 }

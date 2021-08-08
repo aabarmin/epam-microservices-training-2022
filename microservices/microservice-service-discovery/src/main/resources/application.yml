@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: ${SERVER_PORT:8081}
 
 eureka:
   client:
@@ -7,3 +7,9 @@ eureka:
     fetch-registry: false
   instance:
     hostname: localhost
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

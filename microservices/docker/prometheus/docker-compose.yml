@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  prometheus:
+    build:
+      context: ./prometheus
+    ports:
+      - 9090:9090
+    networks:
+      - microservices_network
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+    networks:
+      - microservices_network
+
+networks:
+  microservices_network:
+    name: microservices_network

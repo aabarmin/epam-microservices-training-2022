@@ -1,38 +1,35 @@
-version: '3'
+version: '2.4'
 
 services:
-  webapp:
-    image: microservices/graphql:latest
-    environment:
-      - IS_SERVICE_DISCOVERY=true
-    ports:
-      - 18080:8080
-
   service-discovery:
-    image: microservices/service-discovery:latest
+    image: microservice-service-discovery:1.0-SNAPSHOT
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+      start_period: 15s
     environment:
-      - IS_SERVICE_DISCOVERY=true
-    ports:
-      - 18081:8081
-
-#  service-delivery:
-#    image: microservices/delivery:latest
-#    ports:
-#      - 18082:8082
+      - SERVER_PORT=8080
+    networks:
+      - microservices_network
 
   service-drugs:
-    image: microservices/drugs:latest
-    deploy:
-      replicas: 2
-    ports:
-      - 18083:8083
+    image: microservice-drugs:1.0-SNAPSHOT
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      service-discovery:
+        condition: service_healthy
+    environment:
+      - SERVER_PORT=8080
+      - EUREKA_URL=http://service-discovery:8080/eureka
+    networks:
+      - microservices_network
 
-  service-pharmacies:
-    image: microservices/pharmacies:latest
-    ports:
-      - 18084:8084
-
-  service-recipes:
-    image: microservices/recipes:latest
-    ports:
-      - 18085:8085
+networks:
+  microservices_network:
+    name: microservices_network

@@ -19,3 +19,9 @@ spring:
         completeDelivery-in-0:
           destination: orders-complete
           group: main
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
