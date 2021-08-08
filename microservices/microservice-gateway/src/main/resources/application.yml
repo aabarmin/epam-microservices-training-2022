@@ -6,16 +6,13 @@ spring:
     name: api-gateway
   profiles:
     active: dev
-#  cloud:
-#    gateway:
-#      discovery:
-#        locator:
-#          enabled: true
+  zipkin:
+    base-url: ${ZIPKIN_URL:http://localhost:9411}
 
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8081/eureka
+      defaultZone: ${EUREKA_URL:http://localhost:8081/eureka}
 
 management:
   endpoints:

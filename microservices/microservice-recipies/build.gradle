@@ -7,7 +7,17 @@ bootJar {
     mainClass = 'com.epam.training.microservice.service.recipes.RecipesServiceApplication'
 }
 
+bootBuildImage {
+    builder = "docker.io/paketobuildpacks/builder:full"
+}
+
 dependencies {
+    // Sleuth & Zipkin
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+    implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
+
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
     implementation 'org.springframework.boot:spring-boot-starter-amqp'
     implementation 'org.springframework.cloud:spring-cloud-stream'
     implementation 'org.springframework.cloud:spring-cloud-stream-binder-rabbit'

@@ -15,6 +15,7 @@ import lombok.Cleanup;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -29,8 +30,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
-@Profile("dev")
-public class TestDataLoader  {
+public class TestDataLoader implements CommandLineRunner {
     @Value("classpath:test-data/doctor-and-recipies.json")
     private Resource doctorResource;
 
@@ -49,13 +49,12 @@ public class TestDataLoader  {
     @Autowired
     private DrugServiceClient drugClient;
 
-    @GetMapping("/load-test-data")
-    @SneakyThrows
-    public void onApplicationEvent() {
-        @Cleanup final InputStream contentStream = doctorResource.getInputStream();
-        objectMapper
-                .readValue(contentStream, new TypeReference<List<DoctorLoadModel>>() {})
-                .forEach(this::importDoctorAndRecipe);
+    @Override
+    public void run(String... args) throws Exception {
+      @Cleanup final InputStream contentStream = doctorResource.getInputStream();
+      objectMapper
+          .readValue(contentStream, new TypeReference<List<DoctorLoadModel>>() {})
+          .forEach(this::importDoctorAndRecipe);
     }
 
     private void importDoctorAndRecipe(DoctorLoadModel model) {

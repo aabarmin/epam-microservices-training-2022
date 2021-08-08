@@ -2,11 +2,13 @@ package com.epam.training.miservices.services.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class GatewayApplication {
   public static void main(String[] args) {
     SpringApplication.run(GatewayApplication.class, args);
@@ -20,8 +22,13 @@ public class GatewayApplication {
             r -> r.path("/ya").uri("https://ya.ru/")
         )
         .route(
+            "recipes-store",
+            r -> r.path("/recipes")
+                .uri("lb://recipe-service")
+        )
+        .route(
             "drugs-route",
-            r -> r.path("/drugs-store")
+            r -> r.path("/drugs-all")
                 .filters(f -> f
                     .stripPrefix(1)
                     .prefixPath("/drugs")

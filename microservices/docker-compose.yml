@@ -8,9 +8,9 @@ services:
       interval: 5s
       timeout: 10s
       retries: 5
-      start_period: 15s
     environment:
       - SERVER_PORT=8080
+      - ZIPKIN_URL=http://zipkin:9411
     networks:
       - microservices_network
 
@@ -26,7 +26,51 @@ services:
         condition: service_healthy
     environment:
       - SERVER_PORT=8080
+      - ZIPKIN_URL=http://zipkin:9411
       - EUREKA_URL=http://service-discovery:8080/eureka
+    networks:
+      - microservices_network
+
+  service-recipes:
+    image: microservice-recipies:1.0-SNAPSHOT
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      service-discovery:
+        condition: service_healthy
+      service-drugs:
+        condition: service_healthy
+    environment:
+      - SERVER_PORT=8080
+      - ZIPKIN_URL=http://zipkin:9411
+      - EUREKA_URL=http://service-discovery:8080/eureka
+      - RABBIT_HOST=rabbitmq
+    ports:
+      - 18080:8080
+    networks:
+      - microservices_network
+
+  service-gateway:
+    image: microservice-gateway:1.0-SNAPSHOT
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+    depends_on:
+      service-discovery:
+        condition: service_healthy
+      service-drugs:
+        condition: service_healthy
+    environment:
+      - SERVER_PORT=8080
+      - ZIPKIN_URL=http://zipkin:9411
+      - EUREKA_URL=http://service-discovery:8080/eureka
+    ports:
+      - 8080:8080
     networks:
       - microservices_network
 

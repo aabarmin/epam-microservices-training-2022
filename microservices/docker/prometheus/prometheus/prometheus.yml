@@ -14,3 +14,5 @@ scrape_configs:
       - targets:
         - service-discovery:8080
         - service-drugs:8080
+        - service-recipes:8080
+        - service-gateway:8080

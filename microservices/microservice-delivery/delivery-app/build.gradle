@@ -12,6 +12,10 @@ bootJar {
 }
 
 dependencies {
+    // Sleuth & Zipkin
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth'
+    implementation 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
+
     implementation project(':microservices:microservice-delivery:delivery-persistence')
     runtimeOnly 'com.h2database:h2:1.4.200'
 }
