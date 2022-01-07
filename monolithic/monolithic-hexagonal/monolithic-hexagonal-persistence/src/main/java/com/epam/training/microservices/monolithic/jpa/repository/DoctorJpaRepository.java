@@ -6,5 +6,5 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DoctorJpaRepository extends JpaRepository<DoctorEntity, Long> {
-  Optional<Doctor> findDoctorByFirstNameAndLastName(String firrstName, String lastName);
+  Optional<DoctorEntity> findDoctorByFirstNameAndLastName(String firstName, String lastName);
 }

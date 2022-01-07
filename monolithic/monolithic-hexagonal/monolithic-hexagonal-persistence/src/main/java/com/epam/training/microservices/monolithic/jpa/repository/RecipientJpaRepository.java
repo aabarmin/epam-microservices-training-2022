@@ -6,5 +6,5 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RecipientJpaRepository extends JpaRepository<RecipientEntity, Long> {
-  Optional<Recipient> findRecipientByFirstNameAndLastName(String firstName, String lastName);
+  Optional<RecipientEntity> findRecipientByFirstNameAndLastName(String firstName, String lastName);
 }

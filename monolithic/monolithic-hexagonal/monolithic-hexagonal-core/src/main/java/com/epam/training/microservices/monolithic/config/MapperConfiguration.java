@@ -1,4 +1,4 @@
-package com.epam.training.microservices.monolithic.transformer;
+package com.epam.training.microservices.monolithic.config;
 
 import org.mapstruct.MapperConfig;
 

@@ -6,5 +6,5 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SymptomJpaRepository extends JpaRepository<SymptomEntity, Long> {
-  Optional<Symptom> findSymptomByName(String name);
+  Optional<SymptomEntity> findSymptomByName(String name);
 }

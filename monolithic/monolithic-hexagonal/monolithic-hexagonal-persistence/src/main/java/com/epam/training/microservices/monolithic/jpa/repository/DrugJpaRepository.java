@@ -6,5 +6,5 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DrugJpaRepository extends JpaRepository<DrugEntity, Long> {
-  Optional<Drug> findDrugByName(String name);
+  Optional<DrugEntity> findDrugByName(String name);
 }
