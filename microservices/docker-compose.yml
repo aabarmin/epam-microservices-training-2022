@@ -2,7 +2,7 @@ version: '2.4'
 
 services:
   service-discovery:
-    image: microservice-service-discovery:1.0-SNAPSHOT
+    image: microservices/service-discovery:latest
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
       interval: 5s
@@ -15,7 +15,7 @@ services:
       - microservices_network
 
   service-drugs:
-    image: microservice-drugs:1.0-SNAPSHOT
+    image: micmicroservices/drugs:latest
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
       interval: 5s
@@ -32,7 +32,7 @@ services:
       - microservices_network
 
   service-recipes:
-    image: microservice-recipies:1.0-SNAPSHOT
+    image: microservices/recipes:latest
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
       interval: 5s
@@ -54,7 +54,7 @@ services:
       - microservices_network
 
   service-gateway:
-    image: microservice-gateway:1.0-SNAPSHOT
+    image: microservices/gateway:latest
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
       interval: 5s
