@@ -18,7 +18,7 @@
     <modules>
 <!--        <module>microservice-delivery</module>-->
 <!--        <module>microservice-drugs</module>-->
-<!--        <module>microservice-gateway</module>-->
+        <module>microservice-gateway</module>
         <module>microservice-graphql</module>
         <module>microservice-pharmacies</module>
         <module>microservice-recipes</module>
