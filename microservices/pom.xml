@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.epam.microservices</groupId>
+        <artifactId>training</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.epam.microservices</groupId>
+    <artifactId>microservices</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+<!--        <module>microservice-delivery</module>-->
+<!--        <module>microservice-drugs</module>-->
+<!--        <module>microservice-gateway</module>-->
+<!--        <module>microservice-graphql</module>-->
+<!--        <module>microservice-pharmacies</module>-->
+        <module>microservice-recipes</module>
+        <module>microservice-service-discovery</module>
+        <module>microservice-state-machine</module>
+        <module>microservice-zuul</module>
+    </modules>
+</project>

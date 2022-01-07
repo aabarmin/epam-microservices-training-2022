@@ -13,6 +13,7 @@
 
 	<modules>
 		<module>monolithic</module>
+		<module>microservices</module>
 	</modules>
 
 	<properties>
@@ -22,6 +23,7 @@
 		<maven.compiler.target>11</maven.compiler.target>
 		<spring-boot.version>2.6.2</spring-boot.version>
 		<spring-cloud.version>2021.0.0</spring-cloud.version>
+		<spring-statemachine.version>3.0.1</spring-statemachine.version>
 	</properties>
 
 	<dependencyManagement>
@@ -40,6 +42,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+				<groupId>org.springframework.statemachine</groupId>
+				<artifactId>spring-statemachine-bom</artifactId>
+				<version>${spring-statemachine.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
 
 			<dependency>
 				<groupId>org.mapstruct</groupId>
@@ -50,6 +59,16 @@
 				<groupId>com.google.guava</groupId>
 				<artifactId>guava</artifactId>
 				<version>30.1.1-jre</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-ui</artifactId>
+				<version>1.5.9</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-data-rest</artifactId>
+				<version>1.5.9</version>
 			</dependency>
 
 			<dependency>
