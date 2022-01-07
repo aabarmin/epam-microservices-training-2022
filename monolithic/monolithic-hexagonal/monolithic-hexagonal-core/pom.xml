@@ -4,21 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.epam.microservices</groupId>
-        <artifactId>monolithic</artifactId>
+        <groupId>com.epam.microservices.monolithic</groupId>
+        <artifactId>monolithic-hexagonal</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.epam.microservices.monolithic</groupId>
-    <artifactId>monolithic-hexagonal</artifactId>
+    <artifactId>monolithic-hexagonal-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>monolithic-hexagonal-core</module>
-        <module>monolithic-hexagonal-persistence</module>
-        <module>monolithic-hexagonal-web</module>
-        <module>monolithic-hexagonal-app</module>
-    </modules>
 </project>
