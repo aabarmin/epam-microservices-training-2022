@@ -1,0 +1,34 @@
+[
+  {
+    "doctor": {
+      "firstName": "Julieta",
+      "lastName": "Lamont"
+    },
+    "recipes": [
+      {
+        "issueDate": "2021-01-20",
+        "recipient": {
+          "firstName": "Sayer",
+          "lastName": "Tomaselli"
+        },
+        "content": [
+          {
+            "drug": "Acetylcholinesterase inhibitors",
+            "amount": 37,
+            "instruction": "Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh."
+          },
+          {
+            "drug": "NMDA receptor antagonists",
+            "amount": 12,
+            "instruction": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat."
+          },
+          {
+            "drug": "Aducanumab",
+            "amount": 3,
+            "instruction": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;"
+          }
+        ]
+      }
+    ]
+  }
+]

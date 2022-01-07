@@ -27,6 +27,10 @@
             <artifactId>monolithic-hexagonal-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.epam.microservices.monolithic</groupId>
+            <artifactId>monolithic-hexagonal-loader</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>

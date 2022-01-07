@@ -3,13 +3,8 @@ package com.epam.training.microservices.monolithic.jpa.entity.pharmacy;
 import com.epam.training.microservices.monolithic.model.pharmacy.PharmacyAvailable;
 import com.google.common.collect.Sets;
 import java.util.Set;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -25,6 +20,6 @@ public class PharmacyEntity {
   private String name;
   private String address;
 
-  @OneToMany(mappedBy = "pharmacy", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "pharmacy", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private Set<PharmacyAvailableEntity> available = Sets.newHashSet();
 }

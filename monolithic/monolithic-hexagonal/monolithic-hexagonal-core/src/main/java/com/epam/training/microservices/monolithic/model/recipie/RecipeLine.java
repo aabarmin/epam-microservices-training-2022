@@ -15,8 +15,6 @@ import lombok.EqualsAndHashCode;
 public class RecipeLine {
     private Long id;
 
-    private Recipe recipe;
-
     /**
      * A drug to apply. 
      */

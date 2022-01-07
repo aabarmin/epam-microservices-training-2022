@@ -1,0 +1,44 @@
+[
+    {
+        "disease": "Asperger syndrome",
+        "symptoms": [
+            "Problems with social interaction, non-verbal communication, restricted interests, and repetitive behavior"
+        ],
+        "treatments": [],
+        "drugs": []
+    },
+    {
+        "disease": "Agoraphobia",
+        "symptoms": [
+            "Anxiety in situations perceived to be unsafe",
+            "Panic attacks"
+        ],
+        "treatments": [
+            "Cognitive behavioral therapy"
+        ],
+        "drugs": []
+    },
+    {
+        "disease": "Alice in Wonderland syndrome",
+        "symptoms": [
+            "Micropsia (disoriented perception on objects)"
+        ],
+        "treatments": [],
+        "drugs": []
+    },
+    {
+        "disease": "Alzheimer's disease",
+        "symptoms": [
+            "Difficulty in remembering recent events",
+            "Problems with language",
+            "Disorientation",
+            "Mood swings"
+        ],
+        "treatments": [],
+        "drugs": [
+            "Acetylcholinesterase inhibitors",
+            "NMDA receptor antagonists",
+            "Aducanumab"
+        ]
+    }
+]

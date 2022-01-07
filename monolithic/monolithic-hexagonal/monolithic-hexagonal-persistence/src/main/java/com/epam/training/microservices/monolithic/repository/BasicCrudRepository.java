@@ -29,7 +29,8 @@ public abstract class BasicCrudRepository<MODEL extends HasId<KEY>, ENTITY, KEY>
 
   @Override
   public MODEL save(MODEL instance) {
-    final ENTITY newOrExistingEntity = getJpaRepository().findById(instance.getId())
+    final ENTITY newOrExistingEntity = Optional.ofNullable(instance.getId())
+        .flatMap(id -> getJpaRepository().findById(id))
         .orElseGet(() -> getTransformer().newEntity());
 
     getTransformer().toEntity(newOrExistingEntity, instance);
