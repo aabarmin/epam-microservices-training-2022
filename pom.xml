@@ -9,7 +9,11 @@
 	<name>training</name>
 	<description>Examples for EPAM microservices training</description>
 
+	<packaging>pom</packaging>
 
+	<modules>
+		<module>monolithic</module>
+	</modules>
 
 	<properties>
 		<java.version>11</java.version>
