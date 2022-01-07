@@ -21,4 +21,24 @@
         <module>monolithic-hexagonal-web</module>
         <module>monolithic-hexagonal-app</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.epam.microservices.monolithic</groupId>
+                <artifactId>monolithic-hexagonal-core</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epam.microservices.monolithic</groupId>
+                <artifactId>monolithic-hexagonal-persistence</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.epam.microservices.monolithic</groupId>
+                <artifactId>monolithic-hexagonal-web</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

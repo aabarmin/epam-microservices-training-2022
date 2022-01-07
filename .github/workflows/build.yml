@@ -19,24 +19,14 @@ jobs:
       with:
         java-version: '11'
         distribution: 'adopt'
-        
-    - name: Validate Gradle wrapper
-      uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
 
-    - name: Cache Gradle packages
-      uses: actions/cache@v2
+    - name: Caching Apache Maven repository
+      uses: actions/cache@v1
       with:
-        path: |
-          ~/.gradle/caches
-          ~/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
-          ${{ runner.os }}-gradle-
-    
-    - name: Build with Gradle
-      run: ./gradlew build
+          ${{ runner.os }}-maven-
 
-    - name: Cleanup Gradle Cache
-      run: |
-        rm -f ~/.gradle/caches/modules-2/modules-2.lock
-        rm -f ~/.gradle/caches/modules-2/gc.properties
+    - name: Build with Maven
+      run: ./mvnw clean package
