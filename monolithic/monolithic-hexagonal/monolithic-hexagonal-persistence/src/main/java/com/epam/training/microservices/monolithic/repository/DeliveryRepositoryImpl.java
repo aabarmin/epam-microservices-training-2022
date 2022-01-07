@@ -5,18 +5,18 @@ import com.epam.training.microservices.monolithic.jpa.repository.DeliveryJpaRepo
 import com.epam.training.microservices.monolithic.model.delivery.Delivery;
 import com.epam.training.microservices.monolithic.transformer.DeliveryTransformer;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class DeliveryRepositoryImpl extends BasicCrudRepository<Delivery, DeliveryEntity, Long>
     implements DeliveryRepository {
 
   @Getter
-  @Autowired
-  private DeliveryJpaRepository jpaRepository;
+  private final DeliveryJpaRepository jpaRepository;
 
   @Getter
-  @Autowired
-  private DeliveryTransformer transformer;
+  private final DeliveryTransformer transformer;
 }

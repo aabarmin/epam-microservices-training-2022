@@ -26,5 +26,5 @@ public class PharmacyEntity {
   private String address;
 
   @OneToMany(mappedBy = "pharmacy", cascade = CascadeType.ALL)
-  private Set<PharmacyAvailable> available = Sets.newHashSet();
+  private Set<PharmacyAvailableEntity> available = Sets.newHashSet();
 }

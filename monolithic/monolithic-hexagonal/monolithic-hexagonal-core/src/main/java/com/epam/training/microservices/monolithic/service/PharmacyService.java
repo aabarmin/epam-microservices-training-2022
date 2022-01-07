@@ -5,13 +5,15 @@ import com.epam.training.microservices.monolithic.repository.CrudRepository;
 import com.epam.training.microservices.monolithic.repository.PharmacyRepository;
 import com.epam.training.microservices.monolithic.service.CrudService;
 import java.util.Optional;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class PharmacyService implements CrudService<Pharmacy> {
-  @Autowired
-  private PharmacyRepository pharmacyRepository;
+  private final PharmacyRepository pharmacyRepository;
 
   @Override
   public CrudRepository<Pharmacy, Long> getRepository() {

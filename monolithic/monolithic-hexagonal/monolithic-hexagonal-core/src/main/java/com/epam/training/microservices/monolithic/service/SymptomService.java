@@ -5,13 +5,15 @@ import com.epam.training.microservices.monolithic.repository.CrudRepository;
 import com.epam.training.microservices.monolithic.repository.SymptomRepository;
 import com.epam.training.microservices.monolithic.service.CrudService;
 import java.util.Optional;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class SymptomService implements CrudService<Symptom> {
-    @Autowired
-    private SymptomRepository symptomRepository;
+    private final SymptomRepository symptomRepository;
 
     @Override
     public CrudRepository<Symptom, Long> getRepository() {

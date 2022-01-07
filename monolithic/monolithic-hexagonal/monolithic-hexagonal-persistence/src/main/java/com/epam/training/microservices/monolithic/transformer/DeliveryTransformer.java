@@ -4,7 +4,7 @@ import com.epam.training.microservices.monolithic.jpa.entity.delivery.DeliveryEn
 import com.epam.training.microservices.monolithic.model.delivery.Delivery;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
+@Mapper(config = MapperConfiguration.class)
 public interface DeliveryTransformer extends Transformer<Delivery, DeliveryEntity> {
   @Override
   default DeliveryEntity newEntity() {

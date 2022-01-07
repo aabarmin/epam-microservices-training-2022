@@ -1,5 +1,7 @@
 package com.epam.training.microservices.monolithic.jpa.entity.drug;
 
+import com.epam.training.microservices.monolithic.jpa.entity.disease.DiseaseEntity;
+import com.epam.training.microservices.monolithic.jpa.entity.disease.SymptomEntity;
 import com.epam.training.microservices.monolithic.model.disease.Disease;
 import com.epam.training.microservices.monolithic.model.disease.Symptom;
 import com.epam.training.microservices.monolithic.model.drug.Drug;
@@ -44,7 +46,7 @@ public class DrugCreationEntity {
         joinColumns = @JoinColumn(name = "drug_creation_id"),
         inverseJoinColumns = @JoinColumn(name = "symptom_id")
     )
-    private Set<Symptom> symptoms = Sets.newHashSet();
+    private Set<SymptomEntity> symptoms = Sets.newHashSet();
 
     /**
      * Diseases to be cured by the drug. 
@@ -55,5 +57,5 @@ public class DrugCreationEntity {
         joinColumns = @JoinColumn(name = "drug_creation_id"),
         inverseJoinColumns = @JoinColumn(name = "disease_id")
     )
-    private Set<Disease> diseases = Sets.newHashSet();
+    private Set<DiseaseEntity> diseases = Sets.newHashSet();
 }

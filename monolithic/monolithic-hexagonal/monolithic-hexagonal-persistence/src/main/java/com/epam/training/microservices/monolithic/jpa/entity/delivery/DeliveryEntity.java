@@ -1,5 +1,6 @@
 package com.epam.training.microservices.monolithic.jpa.entity.delivery;
 
+import com.epam.training.microservices.monolithic.jpa.entity.pharmacy.PharmacyEntity;
 import com.epam.training.microservices.monolithic.model.delivery.DeliveryLine;
 import com.epam.training.microservices.monolithic.model.delivery.DeliveryStatus;
 import com.epam.training.microservices.monolithic.model.pharmacy.Pharmacy;
@@ -48,11 +49,11 @@ public class DeliveryEntity {
      */
     @JoinColumn(name = "pharmacy_id")
     @ManyToOne(fetch = FetchType.EAGER)
-    private Pharmacy pharmacy;
+    private PharmacyEntity pharmacy;
 
     /**
      * Content of the com.epam.training.service.delivery.
      */
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "com.epam.training.service.delivery")
-    private Set<DeliveryLine> content = Sets.newHashSet();
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "delivery")
+    private Set<DeliveryLineEntity> content = Sets.newHashSet();
 }
