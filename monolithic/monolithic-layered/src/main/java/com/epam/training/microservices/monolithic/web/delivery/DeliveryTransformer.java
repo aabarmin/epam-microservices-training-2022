@@ -8,20 +8,18 @@ import com.epam.training.microservices.monolithic.service.pharmacy.PharmacyServi
 import com.epam.training.microservices.monolithic.web.crud.SelectItem;
 import java.util.Collection;
 import java.util.stream.Collectors;
+
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@RequiredArgsConstructor
 public class DeliveryTransformer {
-  @Autowired
-  private PharmacyService pharmacyService;
-
-  @Autowired
-  private DrugService drugService;
-
-  @Autowired
-  private DeliveryService deliveryService;
+  private final PharmacyService pharmacyService;
+  private final DrugService drugService;
+  private final DeliveryService deliveryService;
 
   @Transactional
   public DeliveryModel toModel(Long id) {

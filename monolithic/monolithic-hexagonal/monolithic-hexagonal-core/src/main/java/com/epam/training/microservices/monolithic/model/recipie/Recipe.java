@@ -7,24 +7,24 @@ import java.util.Set;
 import lombok.Data;
 
 /**
- * A recipie to apply. 
+ * A recipe to apply.
  */
 @Data
 public class Recipe implements HasId<Long> {
     private Long id;
 
     /**
-     * A doctor who issues the recipie.
+     * A doctor who issues the recipe.
      */
     private Doctor doctor;
 
     /**
-     * A recipient of the recipie. 
+     * A recipient of the recipe.
      */
     private Recipient recipient;
 
     /**
-     * A content of the recipie. 
+     * A content of the recipe.
      */
     private Set<RecipeLine> lines = Sets.newHashSet();
 

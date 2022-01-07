@@ -10,6 +10,7 @@ import com.epam.training.microservices.monolithic.web.crud.all.ViewAllTemplatePa
 import com.epam.training.microservices.monolithic.web.crud.single.ViewSingleTemplateParams;
 import com.epam.training.microservices.monolithic.web.crud.single.form.HiddenFieldModel;
 import com.epam.training.microservices.monolithic.web.crud.single.form.TextFieldModel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,10 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
  * A controller to manage symptoms. 
  */
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/symptoms")
 public class SymptomController implements CrudController<Symptom> {
-    @Autowired
-    private SymptomService symptomService;
+    private final SymptomService symptomService;
 
     @Override
     public ViewAllTemplateParams getViewAllTemplateParams() {

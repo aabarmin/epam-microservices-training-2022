@@ -9,15 +9,16 @@ import com.epam.training.microservices.monolithic.web.crud.all.ViewAllTemplatePa
 import com.epam.training.microservices.monolithic.web.crud.single.ViewSingleTemplateParams;
 import com.epam.training.microservices.monolithic.web.crud.single.form.HiddenFieldModel;
 import com.epam.training.microservices.monolithic.web.crud.single.form.TextFieldModel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/diseases")
 public class DiseaseController implements CrudController<Disease> {
-  @Autowired
-  private DiseaseService diseaseService;
+  private final DiseaseService diseaseService;
 
   @Override
   public ViewAllTemplateParams getViewAllTemplateParams() {

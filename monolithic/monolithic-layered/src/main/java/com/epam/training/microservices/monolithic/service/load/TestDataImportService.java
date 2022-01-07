@@ -33,10 +33,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import lombok.Cleanup;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -46,7 +49,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @Profile("dev")
-public class TestDataImportService implements ApplicationListener<ContextRefreshedEvent> {
+@RequiredArgsConstructor
+public class TestDataImportService implements ApplicationRunner {
   @Value("classpath:test-data/diseases.json")
   private Resource diseasesResource;
 
@@ -56,35 +60,18 @@ public class TestDataImportService implements ApplicationListener<ContextRefresh
   @Value("classpath:test-data/pharmacy.json")
   private Resource pharmacyResource;
 
-  @Autowired
-  private SymptomService symptomService;
-
-  @Autowired
-  private DiseaseService diseaseService;
-
-  @Autowired
-  private DoctorService doctorService;
-
-  @Autowired
-  private RecipientService recipientService;
-
-  @Autowired
-  private RecipeService recipeService;
-
-  @Autowired
-  private DrugService drugService;
-
-  @Autowired
-  private PharmacyService pharmacyService;
-
-  @Autowired
-  private DeliveryService deliveryService;
-
-  @Autowired
-  private ObjectMapper objectMapper;
+  private final SymptomService symptomService;
+  private final DiseaseService diseaseService;
+  private final DoctorService doctorService;
+  private final RecipientService recipientService;
+  private final RecipeService recipeService;
+  private final DrugService drugService;
+  private final PharmacyService pharmacyService;
+  private final DeliveryService deliveryService;
+  private final ObjectMapper objectMapper;
 
   @Override
-  public void onApplicationEvent(ContextRefreshedEvent event) {
+  public void run(ApplicationArguments args) throws Exception {
     log.info("Loading test data");
 
     importDrugsAndDiseases();

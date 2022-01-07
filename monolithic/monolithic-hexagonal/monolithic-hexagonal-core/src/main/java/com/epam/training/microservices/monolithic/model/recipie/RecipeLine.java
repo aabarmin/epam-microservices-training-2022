@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * One line of the recipie. 
+ * One line of the recipe.
  */
 @Data
 @EqualsAndHashCode(exclude = {

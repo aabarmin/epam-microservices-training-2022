@@ -3,6 +3,9 @@ package com.epam.training.microservices.monolithic.model.delivery;
 import com.epam.training.microservices.monolithic.model.drug.Drug;
 import lombok.Data;
 
+/**
+ * One single item to be delivered.
+ */
 @Data
 public class DeliveryLine {
     private Long id;

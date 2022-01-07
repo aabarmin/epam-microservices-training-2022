@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Stores information about the com.epam.training.service.delivery.
+ * Stores information about the delivery.
  */
 @Data
 @EqualsAndHashCode(exclude = {

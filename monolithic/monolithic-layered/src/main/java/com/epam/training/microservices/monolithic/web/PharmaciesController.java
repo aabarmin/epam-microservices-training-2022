@@ -10,15 +10,16 @@ import com.epam.training.microservices.monolithic.web.crud.all.column.TextColumn
 import com.epam.training.microservices.monolithic.web.crud.single.ViewSingleTemplateParams;
 import com.epam.training.microservices.monolithic.web.crud.single.form.HiddenFieldModel;
 import com.epam.training.microservices.monolithic.web.crud.single.form.TextFieldModel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/pharmacies")
 public class PharmaciesController implements CrudController<Pharmacy> {
-  @Autowired
-  private PharmacyService pharmacyService;
+  private final PharmacyService pharmacyService;
 
   @Override
   public CrudService getService() {
