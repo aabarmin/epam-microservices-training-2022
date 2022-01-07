@@ -17,5 +17,9 @@
 
     <packaging>pom</packaging>
 
-    <modules></modules>
+    <modules>
+        <module>delivery-app</module>
+        <module>delivery-persistence</module>
+        <module>delivery-core</module>
+    </modules>
 </project>

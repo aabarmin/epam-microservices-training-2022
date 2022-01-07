@@ -16,7 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
-<!--        <module>microservice-delivery</module>-->
+        <module>microservice-delivery</module>
         <module>microservice-drugs</module>
         <module>microservice-gateway</module>
         <module>microservice-graphql</module>

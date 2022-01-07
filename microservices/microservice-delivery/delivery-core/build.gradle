@@ -1,9 +1,0 @@
-plugins {
-    id 'com.epam.training.java-conventions'
-}
-
-dependencies {
-    implementation 'com.google.guava:guava'
-}
-
-description = 'delivery-core'

@@ -101,6 +101,17 @@
 				<artifactId>monolithic-hexagonal-web</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
+
+			<dependency>
+				<groupId>com.epam.microservices.microservice.delivery</groupId>
+				<artifactId>core</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.epam.microservices.microservice.delivery</groupId>
+				<artifactId>persistence</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
