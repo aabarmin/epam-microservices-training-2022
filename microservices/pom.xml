@@ -23,7 +23,7 @@
         <module>microservice-pharmacies</module>
         <module>microservice-recipes</module>
         <module>microservice-service-discovery</module>
-        <module>microservice-state-machine</module>
+        <module>microservice-saga-state-machine</module>
         <module>microservice-zuul</module>
     </modules>
 </project>

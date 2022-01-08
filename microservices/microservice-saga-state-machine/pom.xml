@@ -9,11 +9,11 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.epam.microservices</groupId>
+    <groupId>com.epam.microservices.microservice.saga</groupId>
     <artifactId>state-machine</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>microservice-state-machine</name>
+    <name>microservice-saga-state-machine</name>
 
     <dependencies>
         <dependency>
