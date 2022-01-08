@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Orders</title>
+</head>
+<body>
+  <table border="1">
+    <tr>
+      <th>Order Id</th>
+      <th>Actions</th>
+    </tr>
+
+    <tr th:each="order : ${orders}">
+      <td th:text="${order.orderId}" />
+    </tr>
+  </table>
+</body>
+</html>

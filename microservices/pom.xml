@@ -24,6 +24,7 @@
         <module>microservice-recipes</module>
         <module>microservice-service-discovery</module>
         <module>microservice-saga-state-machine</module>
+        <module>microservice-saga-axon</module>
         <module>microservice-zuul</module>
     </modules>
 </project>
