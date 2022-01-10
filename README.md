@@ -56,3 +56,44 @@ Technologies to highlight here:
 
 * Lombok
 * Mapstruct
+
+Microservices
+=
+
+There are many examples however, every app is focused on a few concepts to show. These 
+microservices are focused on managing the data. 
+
+* `microservices/microservice-recipes` is an example of traditional microservice with layered
+  architecture. 
+* `microservices/microservice-pharmacies` is an example of a microservice built using Spring 
+  Data REST, just exposes data.
+* `microservices/microservice-delivery` is an example of microservice built using hexagonal 
+  architecture style. As a monolithic version, it consists of three modules - core, persistence 
+  and the app. The microservice also exposes metrics to Zipkin using Sleuth.
+* `microservices/microservice-drugs` is an example of a microservice built using Spring Data 
+  REST (in order not to write boilerplate) and the versioning approach based on usage of 
+  different endpoints.
+
+Supplementary microservices: 
+
+* `microservices/microservice-service-discovery` is just a service discovery built using Spring 
+  Cloud Starter Eureka. 
+* `microservices/microservice-gateway` is an API Gateway with imperative routing declaration. 
+* `microservices/microservice-zuul` is an API Gateway with declarative routing declaration. 
+* `microservices/microservice-graphq` is an API Gateway which exposes GraphQL API. 
+
+Microservices which demonstrate Saga pattern: 
+
+* `microservices-microservice-state-machine` is an implementation of the Saga pattern using 
+  Spring State Machine. 
+
+Services
+=
+
+There are a few supplementary services which are started inside Docker containers. 
+
+* `microservices/docker/admin` a stack with Portainer which is a GUI for Docker. 
+* `microservices/docker/elk` is an Elastic-Logstash-Kibana stack.
+* `microservices/docker/mq` is a stack with RabbitMQ.
+* `microservices/docker/prometheus` is a monitoring solution with Prometheus. 
+* `microservices/docker/zipkin` is a tracing solution with Zipkin. 
