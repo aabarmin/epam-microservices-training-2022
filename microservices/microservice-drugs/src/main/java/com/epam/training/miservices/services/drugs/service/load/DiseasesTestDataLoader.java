@@ -9,9 +9,12 @@ import com.epam.training.miservices.services.drugs.repository.SymptomRepository;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Cleanup;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -25,76 +28,70 @@ import java.util.stream.Collectors;
 
 @Component
 @Profile("dev")
-public class DiseasesTestDataLoader implements ApplicationListener<ContextRefreshedEvent> {
-    @Value("classpath:test-data/diseases.json")
-    private Resource diseasesResource;
+@RequiredArgsConstructor
+public class DiseasesTestDataLoader implements ApplicationRunner {
+  @Value("classpath:test-data/diseases.json")
+  private Resource diseasesResource;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+  private final ObjectMapper objectMapper;
+  private final DiseaseRepository diseaseRepository;
+  private final SymptomRepository symptomRepository;
+  private final DrugRepository drugRepository;
 
-    @Autowired
-    private DiseaseRepository diseaseRepository;
+  @Override
+  public void run(ApplicationArguments args) throws Exception {
+    @Cleanup final InputStream contentStream = diseasesResource.getInputStream();
+    objectMapper
+        .readValue(contentStream, new TypeReference<List<DiseaseLoadModel>>() {
+        })
+        .forEach(this::importDrugAndDisease);
+  }
 
-    @Autowired
-    private SymptomRepository symptomRepository;
+  private void importDrugAndDisease(DiseaseLoadModel model) {
+    final Disease disease = importDisease(model);
+    importDrugs(model, disease);
+  }
 
-    @Autowired
-    private DrugRepository drugRepository;
+  private Disease importDisease(DiseaseLoadModel model) {
+    final Disease disease = diseaseRepository.findDiseaseByName(model.getDisease())
+        .orElseGet(() -> {
+          final Disease newDisease = new Disease();
+          newDisease.setName(model.getDisease());
+          return newDisease;
+        });
 
-    @Override
-    @SneakyThrows
-    public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        @Cleanup final InputStream contentStream = diseasesResource.getInputStream();
-        objectMapper
-                .readValue(contentStream, new TypeReference<List<DiseaseLoadModel>>(){})
-                .forEach(this::importDrugAndDisease);
+    final Set<Symptom> symptoms = model.getSymptoms().stream()
+        .map(this::findOrCreateSymptom)
+        .collect(Collectors.toSet());
+
+    disease.setSymptoms(symptoms);
+
+    return diseaseRepository.save(disease);
+  }
+
+  private void importDrugs(DiseaseLoadModel model, Disease disease) {
+    for (String drugName : model.getDrugs()) {
+      final Drug drug = drugRepository.findDrugByName(drugName)
+          .orElseGet(() -> {
+            final Drug newDrug = new Drug();
+            newDrug.setName(drugName);
+            newDrug.setAvailable(true);
+            return newDrug;
+          });
+
+      drug.getDiseases().add(disease);
+      drug.getSymptoms().addAll(disease.getSymptoms());
+
+      drugRepository.save(drug);
     }
+  }
 
-    private void importDrugAndDisease(DiseaseLoadModel model) {
-        final Disease disease = importDisease(model);
-        importDrugs(model, disease);
-    }
-
-    private Disease importDisease(DiseaseLoadModel model) {
-        final Disease disease = diseaseRepository.findDiseaseByName(model.getDisease())
-                .orElseGet(() -> {
-                    final Disease newDisease = new Disease();
-                    newDisease.setName(model.getDisease());
-                    return newDisease;
-                });
-
-        final Set<Symptom> symptoms = model.getSymptoms().stream()
-                .map(this::findOrCreateSymptom)
-                .collect(Collectors.toSet());
-
-        disease.setSymptoms(symptoms);
-
-        return diseaseRepository.save(disease);
-    }
-
-    private void importDrugs(DiseaseLoadModel model, Disease disease) {
-        for (String drugName : model.getDrugs()) {
-            final Drug drug = drugRepository.findDrugByName(drugName)
-                    .orElseGet(() -> {
-                        final Drug newDrug = new Drug();
-                        newDrug.setName(drugName);
-                        newDrug.setAvailable(true);
-                        return newDrug;
-                    });
-
-            drug.getDiseases().add(disease);
-            drug.getSymptoms().addAll(disease.getSymptoms());
-
-            drugRepository.save(drug);
-        }
-    }
-
-    private Symptom findOrCreateSymptom(String symptomName) {
-        return symptomRepository.findSymptomByName(symptomName)
-                .orElseGet(() -> {
-                    final Symptom newSymptom = new Symptom();
-                    newSymptom.setName(symptomName);
-                    return newSymptom;
-                });
-    }
+  private Symptom findOrCreateSymptom(String symptomName) {
+    return symptomRepository.findSymptomByName(symptomName)
+        .orElseGet(() -> {
+          final Symptom newSymptom = new Symptom();
+          newSymptom.setName(symptomName);
+          return newSymptom;
+        });
+  }
 }
