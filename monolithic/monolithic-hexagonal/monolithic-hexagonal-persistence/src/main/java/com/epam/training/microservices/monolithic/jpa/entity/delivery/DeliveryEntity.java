@@ -54,6 +54,6 @@ public class DeliveryEntity {
     /**
      * Content of the com.epam.training.service.delivery.
      */
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "delivery")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "delivery")
     private Set<DeliveryLineEntity> content = Sets.newHashSet();
 }
