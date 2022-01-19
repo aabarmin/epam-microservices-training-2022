@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="RecipesServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="recipes" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.epam.training.microservice.service.recipes.RecipesServiceApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
