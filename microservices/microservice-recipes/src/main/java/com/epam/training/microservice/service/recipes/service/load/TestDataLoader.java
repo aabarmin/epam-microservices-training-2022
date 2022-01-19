@@ -5,23 +5,16 @@ import com.epam.training.microservice.service.recipes.model.Recipe;
 import com.epam.training.microservice.service.recipes.model.RecipeLine;
 import com.epam.training.microservice.service.recipes.model.Recipient;
 import com.epam.training.microservice.service.recipes.repository.DoctorRepository;
-import com.epam.training.microservice.service.recipes.service.DrugServiceClient;
-import com.epam.training.microservice.service.recipes.repository.RecipeRepository;
+import com.epam.training.microservice.service.recipes.service.drugs.DrugService;
 import com.epam.training.microservice.service.recipes.repository.RecipientRepository;
 import com.epam.training.microservice.service.recipes.service.recipe.RecipeService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Cleanup;
-import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Profile;
-import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.InputStream;
@@ -47,7 +40,7 @@ public class TestDataLoader implements CommandLineRunner {
     private RecipeService recipeService;
 
     @Autowired
-    private DrugServiceClient drugClient;
+    private DrugService drugService;
 
     @Override
     public void run(String... args) throws Exception {
@@ -82,7 +75,7 @@ public class TestDataLoader implements CommandLineRunner {
                         newLine.setAmount(line.getAmount());
                         newLine.setInstruction(line.getInstruction());
                         newLine.setDrugId(
-                                drugClient.getDrugIdByName(line.getDrug()).orElse(-1L)
+                                drugService.getDrugIdByName(line.getDrug()).orElse(-1L)
                         );
                         newLine.setRecipe(recipe);
                         return newLine;

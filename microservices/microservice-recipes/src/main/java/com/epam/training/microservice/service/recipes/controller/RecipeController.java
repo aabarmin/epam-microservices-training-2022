@@ -3,9 +3,8 @@ package com.epam.training.microservice.service.recipes.controller;
 import com.epam.training.microservice.service.recipes.model.Recipe;
 import com.epam.training.microservice.service.recipes.model.RecipeLine;
 import com.epam.training.microservice.service.recipes.repository.RecipeRepository;
-import com.epam.training.microservice.service.recipes.service.DrugServiceFeignClient;
+import com.epam.training.microservice.service.recipes.service.drugs.DrugService;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
@@ -19,7 +18,7 @@ public class RecipeController {
   private RecipeRepository recipeRepository;
 
   @Autowired
-  private DrugServiceFeignClient drugServiceClient;
+  private DrugService drugService;
 
   @GetMapping("/recipes")
   public Collection<RecipeRestModel> findAll() {
@@ -47,7 +46,7 @@ public class RecipeController {
     return RecipeRestLineModel.builder()
         .amount(line.getAmount())
         .instruction(line.getInstruction())
-        .drugModel(drugServiceClient.findById(line.getDrugId()).getContent())
+        .drugModel(drugService.findById(line.getDrugId()).get())
         .build();
   }
 }

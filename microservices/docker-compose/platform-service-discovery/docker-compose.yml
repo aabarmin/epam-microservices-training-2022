@@ -1,0 +1,41 @@
+version: '2.4'
+
+services:
+  microservice-drugs:
+    image: microservices/drugs:latest
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+    environment:
+      - SERVER_PORT=8080
+      - EUREKA_CLIENT_ENABLED=false
+    ports:
+      - 8083:8080
+    networks:
+      - microservices_network
+
+  microservice-recipes:
+    image: microservices/recipes:latest
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
+      interval: 5s
+      timeout: 10s
+      retries: 5
+    environment:
+      - SERVER_PORT=8080
+      - EUREKA_CLIENT_ENABLED=false
+      - DRUG_FEIGN_TYPE=direct
+      - DRUG_FEIGN_DRUG_SERVICE_URL=http://microservice-drugs:8080/
+    depends_on:
+      microservice-drugs:
+        condition: service_healthy
+    ports:
+      - 8085:8080
+    networks:
+      - microservices_network
+
+networks:
+  microservices_network:
+    name: microservices_network
