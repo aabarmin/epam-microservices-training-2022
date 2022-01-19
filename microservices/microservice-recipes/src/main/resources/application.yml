@@ -5,7 +5,7 @@ spring:
   application:
     name: recipe-service
   profiles:
-    active: feign-client
+    active: dev,feign-client
   datasource:
     url: jdbc:h2:mem:microservice-recipes
   rabbitmq:
