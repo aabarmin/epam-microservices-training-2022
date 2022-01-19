@@ -141,10 +141,19 @@
 					<artifactId>spring-boot-maven-plugin</artifactId>
 					<version>2.5.7</version>
 				</plugin>
+				<plugin>
+					<groupId>com.github.spotbugs</groupId>
+					<artifactId>spotbugs-maven-plugin</artifactId>
+					<version>4.5.2.0</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 
 		<plugins>
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
