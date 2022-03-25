@@ -344,3 +344,29 @@ The classes in a package should be closed together against the same kinds of cha
 - [x] Protocol translation
 - [x] Implementing edge functions
 - [x] Provides each client with its own API
+
+## Developing production-ready microservices
+
+1. What of the following are aspects of the application security (select 3):
+
+- [x] Authentication
+- [x] Authorization
+- [x] Secure inter-process communication
+- [ ] Encryption at rest
+- [ ] Wiping out personal data
+
+2. In OAuth 2.0 what of the following allows to get access to a resource server: 
+
+- [x] Access token
+- [ ] Refresh token
+- [ ] Security code
+- [ ] Security token
+- [ ] Credentials
+
+3. What of the following observability services allows to get path of the request: 
+
+- [x] Distributed tracing
+- [ ] Log aggregation
+- [ ] Exception tracking
+- [ ] Application metrics
+- [ ] Audit logging
