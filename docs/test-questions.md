@@ -273,3 +273,21 @@ The classes in a package should be closed together against the same kinds of cha
 - [ ] Version file
 - [ ] Semantic lock
 - [ ] Commutative updates
+
+## Designing business logic
+
+1. What of the following DDD pattern is used to store collection values: 
+
+- [x] Value object
+- [ ] Entity
+- [ ] Factory
+- [ ] Repository
+- [ ] Service
+
+2. What of the following are characteristics of the aggregates? (select 3)
+
+- [x] Aggregates are consistency boundaries
+- [x] Aggregates are referenced by key only
+- [x] References between aggregates are by their primary keys only
+- [ ] It's possible to reference internal object
+- [ ] Transactions can create or update multiple aggregates
