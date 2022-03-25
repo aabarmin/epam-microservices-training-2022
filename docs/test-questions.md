@@ -1,18 +1,3 @@
-# UPSA
-
-Dates: January 2022 - March 2022
-Customer: Santander
-Project: On-line bank re-platforming discovery
-
-What I actually did:
-
-* Discovery of 26 user journeys
-* Documented user journeys in form of UML diagrams
-* Performed work breakdown, made estimation and built project's delivery plan
-* Prepared team's structure and staffing profiles
-
----
-
 # Questions for the microservices class
 
 ## Introduction
