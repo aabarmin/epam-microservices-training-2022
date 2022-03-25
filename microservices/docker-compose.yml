@@ -15,7 +15,7 @@ services:
       - microservices_network
 
   service-drugs:
-    image: micmicroservices/drugs:latest
+    image: microservices/drugs:latest
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost:8080/actuator/health" ]
       interval: 5s

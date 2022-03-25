@@ -19,7 +19,8 @@ public class GatewayApplication {
     return builder.routes()
         .route(
             "ya-route",
-            r -> r.path("/ya").uri("https://ya.ru/")
+            r -> r.path("/ya")
+                  .uri("https://ya.ru/")
         )
         .route(
             "recipes-store",

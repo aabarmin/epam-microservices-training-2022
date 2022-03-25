@@ -18,7 +18,8 @@ services:
       - elastic_data:/usr/share/elasticsearch/data
 
   filebeat:
-    image: microservices/filebeat
+    build:
+      context: ./filebeat
     user: root
     environment:
       - KIBANA_HOST=kibana:5601
