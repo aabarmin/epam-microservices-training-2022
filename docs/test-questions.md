@@ -370,3 +370,12 @@ The classes in a package should be closed together against the same kinds of cha
 - [ ] Exception tracking
 - [ ] Application metrics
 - [ ] Audit logging
+
+## Deployment
+
+1. What of the following deployment models is the most cost effective and ephemeral: 
+
+- [x] Serverless
+- [ ] Containers
+- [ ] VMs
+- [ ] Physical hardware
