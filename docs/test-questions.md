@@ -318,3 +318,19 @@ The classes in a package should be closed together against the same kinds of cha
 - [ ] Changing name of the field in the event
 - [ ] Changing type of the field
 
+## Queries in microservice architectures
+
+1. What are main drawbacks of the API Composer pattern (select 3):
+
+- [x] Increased overhead
+- [x] Reduced availability
+- [x] Lack of transactional data consistency
+- [ ] Intuitive way of implementing data aggregation
+
+2. What are main benefits of the CQRS pattern (select 3): 
+
+- [x] Improves separation of concerns
+- [x] Supports queries in event-sourcing apps
+- [x] Supports diverse queries
+- [ ] Introduces additional layer of indirection
+- [ ] Adding a replication lag
