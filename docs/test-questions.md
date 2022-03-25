@@ -105,5 +105,121 @@ The classes in a package should be closed together against the same kinds of cha
 - [ ] Small size of resulting applications
 - [ ] Increasing code complexity due to using frameworks
 
-## Interprocess communication
+## Inter-process communication
+
+1. What communication style assumes that the response will arrive in a timely manner: 
+
+- [x] Request/response
+- [ ] One-way notification
+- [ ] Publish/subscribe
+- [ ] Asynchronous request/response
+
+2. What of the following are characteristics of API (select 3):
+
+- [x] Inter-process communication mechanism
+- [x] Defined using interface definition language (IDL)
+- [x] Defines a contract for communication
+- [ ] Will not be changed over time
+- [ ] Written in one single programming language
+
+3. What is semantic versioning specification? 
+
+- [x] Guide to versioning API, set of rules that specify how version number are used
+- [ ] Guide to versioning API, set of rules that specify how deprecation is happening
+- [ ] Guide to versioning API that says that every version should have its own endpoint
+- [ ] Guide to versioning API that says that headers should be introduced
+
+4. What of the following are backward-compatible changes (select 3):
+
+- [x] Adding optional attributes to request
+- [x] Adding attributes to response
+- [x] Adding new operations
+- [ ] Removing optional attributes from request
+- [ ] Adding mandatory attributes to request
+
+5. What of the following are binary message formats (select 3):
+
+- [x] Protocol Buffers
+- [x] Thrift
+- [x] Avro
+- [ ] JSON
+- [ ] XML
+
+6. In accordance with the REST maturity model, what is relevant for the level 2?
+
+- [x] Different HTTP requests for different actions
+- [ ] HTTP POST requests to its sole URL endpoint
+- [ ] Resources are introduced, clients make POST requests to resource endpoints
+- [ ] HATEOAS, Hypertext As The Engine Of Application State
+
+7. What of the following are benefits of gRPC (select 3):
+
+- [x] Supports multiple update operations
+- [x] Compact IPC mechanism
+- [x] Supports bidirectional data streaming
+- [ ] Human-readable message format
+- [ ] Works on top of HTTP/1
+
+8. What of the following help developing robust RPI proxies (select 3):
+
+- [x] Use network timeouts
+- [x] Limit number of requests from clients to services
+- [x] Use circuit breaker pattern
+- [ ] Use binary message formats
+- [ ] Return errors to clients
+
+9. What are characteristics of the application-level service discovery (select 3):
+
+- [x] Self registration pattern
+- [x] Client-side discovery pattern
+- [x] Heartbeat
+- [ ] DNS
+- [ ] vIP
+
+10. What are characteristics of the platform-provided service discovery (select 3):
+
+- [x] 3-rd party registration pattern
+- [x] Client-side discovery pattern
+- [x] DNS
+- [ ] Service discovery application
+- [ ] Load balancing on the client side
+
+11. What of the following are message kinds in the async communication way (select 3):
+
+- [x] Document
+- [x] Command
+- [x] Event
+- [ ] Query
+- [ ] Request
+
+12. What should be included into the message in order to implement async request/response communication model (select 3):
+
+- [x] Message identifier
+- [x] Correlation ID
+- [x] Reply channel
+- [ ] JSON body
+- [ ] Processing status
+
+13. What are benefits of using broker-based messaging architecture (select 3):
+
+- [x] Message buffering
+- [x] Loose coupling
+- [x] Explicit inter-process communication
+- [ ] Additional operational complexity
+- [ ] Better latency
+- [ ] Lower network traffic
+
+14. What of the following helps to achieve single message processing? 
+
+- [x] Transaction table
+- [ ] Outbox table
+- [ ] Transaction log
+- [ ] Message ordering
+
+15. What of the following helps to achieve reliable sending of messages? 
+
+- [x] Outbox table pattern
+- [ ] Transaction log
+- [ ] Message ordering
+- [ ] Transaction table
 
