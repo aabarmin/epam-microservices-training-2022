@@ -291,3 +291,30 @@ The classes in a package should be closed together against the same kinds of cha
 - [x] References between aggregates are by their primary keys only
 - [ ] It's possible to reference internal object
 - [ ] Transactions can create or update multiple aggregates
+
+## Event sourcing
+
+1. Select all issues of the traditional persistence (select 3):
+
+- [x] Object-relational impedance mismatch
+- [x] Lack of aggregation history
+- [x] Complexity of implementation of event publishing
+- [ ] Low performance
+- [ ] High amount of entity classes, additional classes for views
+
+2. What of the following are strategies to handle concurrent updates in event sourcing apps (select 3):
+
+- [x] Optimistic locking
+- [x] Use polling
+- [x] Idempotent message processing
+- [ ] Use snapshots
+
+3. What of the following changes are backward compatible (select 3): 
+
+- [x] Defining a new aggregate type
+- [x] Adding a new event type
+- [x] Adding a new field to the event
+- [ ] Removing an existing aggregate
+- [ ] Changing name of the field in the event
+- [ ] Changing type of the field
+
