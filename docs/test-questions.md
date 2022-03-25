@@ -223,3 +223,53 @@ The classes in a package should be closed together against the same kinds of cha
 - [ ] Message ordering
 - [ ] Transaction table
 
+## Managing transactions with Saga pattern
+
+1. What of the following are characteristics of transactions (select 4):
+
+- [x] Atomicity
+- [x] Consistency
+- [x] Independency
+- [x] Durability
+- [ ] Reliability
+- [ ] Repeatability
+- [ ] Performance
+
+2. What should be taken into account while designing distributed systems (select 3):
+
+- [x] Consistency
+- [x] Availability
+- [x] Partition tolerance
+- [ ] Consistency
+- [ ] Durability
+
+3. What transaction types are considered by Saga pattern (select 3): 
+
+- [x] Pivot transactions
+- [x] Compensation transactions
+- [x] Retriable transactions
+- [ ] Forward transactions
+- [ ] Backward-compatible transactions
+
+4. In case of distributed transaction, what of the following is handled by the local database? (select 2) 
+
+- [x] Durability
+- [x] Consistency
+- [ ] Atomicity
+- [ ] Independency
+
+5. What of the following anomalies are led by using the saga pattern (select 3):
+
+- [x] Lost updates
+- [x] Dirty reads
+- [x] Fuzzy/non-repeatable reads
+- [ ] Transactions serialization
+- [ ] Transaction intersection
+
+6. What counter measure allows to prevent dirty reads by re-reading data before writing? 
+
+- [x] Reread value
+- [ ] Pessimistic view
+- [ ] Version file
+- [ ] Semantic lock
+- [ ] Commutative updates
