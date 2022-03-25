@@ -334,3 +334,13 @@ The classes in a package should be closed together against the same kinds of cha
 - [x] Supports diverse queries
 - [ ] Introduces additional layer of indirection
 - [ ] Adding a replication lag
+
+## External API patterns
+
+1. Select all the features supported by the API Gateway pattern: 
+
+- [x] Request routing
+- [x] API composition
+- [x] Protocol translation
+- [x] Implementing edge functions
+- [x] Provides each client with its own API
