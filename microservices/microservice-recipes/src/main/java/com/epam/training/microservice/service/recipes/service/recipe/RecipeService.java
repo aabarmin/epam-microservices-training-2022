@@ -6,19 +6,13 @@ import com.epam.training.microservice.service.recipes.model.Recipe;
 import com.epam.training.microservice.service.recipes.model.Recipient;
 import com.epam.training.microservice.service.recipes.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.cloud.stream.function.StreamBridge;
-import org.springframework.cloud.stream.messaging.Source;
-import org.springframework.messaging.Message;
-import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
-
-import static com.google.common.base.Preconditions.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.Optional;
-import org.springframework.transaction.annotation.Transactional;
+
+import static com.google.common.base.Preconditions.checkArgument;
 
 @Service
 public class RecipeService {

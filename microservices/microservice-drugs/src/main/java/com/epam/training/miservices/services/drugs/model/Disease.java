@@ -3,7 +3,7 @@ package com.epam.training.miservices.services.drugs.model;
 import com.google.common.collect.Sets;
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Set;
 
 /**

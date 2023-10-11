@@ -6,7 +6,7 @@ import com.epam.training.service.delivery.jpa.EventEntityRepository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.Optional;
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

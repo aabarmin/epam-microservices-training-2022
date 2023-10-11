@@ -3,7 +3,7 @@ package com.epam.training.microservices.services.state.machine.delivery.service;
 import com.epam.training.microservices.services.state.machine.delivery.model.DeliveryEvent;
 import com.epam.training.microservices.services.state.machine.delivery.model.DeliveryState;
 import java.util.function.Consumer;
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.statemachine.StateMachine;
