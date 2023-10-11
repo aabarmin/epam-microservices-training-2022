@@ -2,7 +2,7 @@ package com.epam.training.microservice.service.recipes.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * An entity to store information about doctors who issue the recipiees. 

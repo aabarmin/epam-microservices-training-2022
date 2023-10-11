@@ -2,7 +2,7 @@ package com.epam.training.miservices.services.drugs.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 /**
  * Symptom of the particular disease. 

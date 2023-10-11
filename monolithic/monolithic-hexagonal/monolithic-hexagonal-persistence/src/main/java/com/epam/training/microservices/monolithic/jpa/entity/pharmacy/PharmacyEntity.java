@@ -3,7 +3,7 @@ package com.epam.training.microservices.monolithic.jpa.entity.pharmacy;
 import com.epam.training.microservices.monolithic.model.pharmacy.PharmacyAvailable;
 import com.google.common.collect.Sets;
 import java.util.Set;
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

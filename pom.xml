@@ -17,13 +17,12 @@
 	</modules>
 
 	<properties>
-		<org.projectlombok.version>1.18.22</org.projectlombok.version>
-		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
-		<spring-boot.version>2.6.2</spring-boot.version>
-		<spring-cloud.version>2021.0.0</spring-cloud.version>
-		<spring-statemachine.version>3.0.1</spring-statemachine.version>
+		<org.projectlombok.version>1.18.30</org.projectlombok.version>
+		<org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+		<spring-boot.version>3.1.4</spring-boot.version>
+		<spring-cloud.version>2022.0.4</spring-cloud.version>
+		<spring-statemachine.version>3.2.1</spring-statemachine.version>
+		<java.version>21</java.version>
 	</properties>
 
 	<dependencyManagement>
@@ -139,7 +138,7 @@
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
-					<version>2.5.7</version>
+					<version>3.1.4</version>
 				</plugin>
 				<plugin>
 					<groupId>com.github.spotbugs</groupId>
@@ -157,8 +156,9 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.11.0</version>
 				<configuration>
+					<release>${java.version}</release>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.mapstruct</groupId>

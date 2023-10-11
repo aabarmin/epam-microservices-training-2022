@@ -4,7 +4,7 @@ import com.epam.training.miservices.services.drugs.model.Drug;
 import com.epam.training.miservices.services.drugs.repository.DrugRepository;
 import java.util.Collection;
 import java.util.UUID;
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;

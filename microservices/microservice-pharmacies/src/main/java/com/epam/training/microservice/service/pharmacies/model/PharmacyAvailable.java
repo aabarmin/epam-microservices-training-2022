@@ -2,7 +2,7 @@ package com.epam.training.microservice.service.pharmacies.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Data
 @Entity
