@@ -21,7 +21,7 @@ public class PharmaciesController implements CrudController<Pharmacy> {
   private final PharmacyService pharmacyService;
 
   @Override
-  public CrudService getService() {
+  public CrudService<Pharmacy> getService() {
     return pharmacyService;
   }
 

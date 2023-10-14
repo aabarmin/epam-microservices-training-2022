@@ -23,7 +23,7 @@ public class DeliveryController implements ViewAllSupport<Delivery> {
   private final DeliveryTransformer deliveryTransformer;
 
   @Override
-  public CrudService getService() {
+  public CrudService<Delivery> getService() {
     return deliveryService;
   }
 
