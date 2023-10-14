@@ -1,15 +1,15 @@
 package com.epam.training.microservices.services.state.machine.delivery.web;
 
 import com.epam.training.microservices.services.state.machine.delivery.service.DeliveryService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class DeliveryStateMachineController {
-  @Autowired
-  private DeliveryService deliveryService;
+  private final DeliveryService deliveryService;
 
   @GetMapping("/order/{id}/confirm")
   public void confirmOrder(@PathVariable("id") String id) {

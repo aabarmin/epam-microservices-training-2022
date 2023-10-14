@@ -7,13 +7,11 @@ import com.epam.training.microservice.service.pharmacies.repository.PharmacyRepo
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Cleanup;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
-import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
@@ -24,18 +22,16 @@ import java.util.stream.Collectors;
 
 @Component
 @Profile("dev")
+@RequiredArgsConstructor
 public class PharmacyTestDataLoader implements CommandLineRunner {
     @Value("classpath:test-data/pharmacy.json")
     private Resource pharmacyResource;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-    @Autowired
-    private PharmacyRepository pharmacyRepository;
+    private final PharmacyRepository pharmacyRepository;
 
-    @Autowired
-    private DrugService drugClient;
+    private final DrugService drugClient;
 
     @Override
     @SneakyThrows
@@ -56,7 +52,7 @@ public class PharmacyTestDataLoader implements CommandLineRunner {
                     availableDrug.setPharmacy(pharmacy);
                     availableDrug.setDrugId(
                             drugClient.getDrugIdByName(available.getDrugName())
-                                .orElseGet(() -> -1L)
+                                .orElse(-1L)
                     );
                     availableDrug.setAmount(available.getAmount());
                     return availableDrug;

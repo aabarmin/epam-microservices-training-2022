@@ -5,13 +5,13 @@ import com.epam.training.microservice.service.recipes.model.Recipe;
 import com.epam.training.microservice.service.recipes.repository.OutgoingRecipeRepository;
 import java.time.LocalDateTime;
 import java.util.Collection;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class OutgoingRecipeService {
-  @Autowired
-  private OutgoingRecipeRepository repository;
+  private final OutgoingRecipeRepository repository;
 
   public OutgoingRecipe findOrCreate(final Recipe recipe) {
     return repository.findOutgoingRecipeByRecipeAndSent(recipe, false)

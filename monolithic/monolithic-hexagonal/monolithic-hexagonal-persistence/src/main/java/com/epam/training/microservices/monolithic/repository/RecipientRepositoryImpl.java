@@ -1,6 +1,5 @@
 package com.epam.training.microservices.monolithic.repository;
 
-import com.epam.training.microservices.monolithic.jpa.entity.recipie.RecipeEntity;
 import com.epam.training.microservices.monolithic.jpa.entity.recipie.RecipientEntity;
 import com.epam.training.microservices.monolithic.jpa.repository.RecipientJpaRepository;
 import com.epam.training.microservices.monolithic.model.recipie.Recipient;

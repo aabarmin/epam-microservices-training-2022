@@ -2,9 +2,6 @@ package com.epam.training.microservices.monolithic.jpa.entity.drug;
 
 import com.epam.training.microservices.monolithic.jpa.entity.disease.DiseaseEntity;
 import com.epam.training.microservices.monolithic.jpa.entity.disease.SymptomEntity;
-import com.epam.training.microservices.monolithic.model.disease.Disease;
-import com.epam.training.microservices.monolithic.model.disease.Symptom;
-import com.epam.training.microservices.monolithic.model.drug.Drug;
 import com.google.common.collect.Sets;
 import java.util.Set;
 import jakarta.persistence.Entity;
@@ -20,7 +17,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 /**
- * An information about creation of the drug for the particular disease. 
+ * An information about creation of the drug for the particular disease.
  */
 @Data
 @Entity
@@ -31,14 +28,14 @@ public class DrugCreationEntity {
     private Long id;
 
     /**
-     * Information about the drug to be created. 
+     * Information about the drug to be created.
      */
     @JoinColumn(name = "drug_id")
     @ManyToOne(fetch = FetchType.EAGER)
     private DrugEntity drug;
 
     /**
-     * Symptoms to be cured by the drug. 
+     * Symptoms to be cured by the drug.
      */
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -49,7 +46,7 @@ public class DrugCreationEntity {
     private Set<SymptomEntity> symptoms = Sets.newHashSet();
 
     /**
-     * Diseases to be cured by the drug. 
+     * Diseases to be cured by the drug.
      */
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

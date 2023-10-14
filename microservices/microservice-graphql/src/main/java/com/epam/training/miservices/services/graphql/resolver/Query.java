@@ -7,16 +7,15 @@ import com.epam.training.miservices.services.graphql.service.DrugModel;
 import com.epam.training.miservices.services.graphql.service.DrugServiceFeignClient;
 import java.util.Collection;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class Query implements GraphQLQueryResolver {
-  @Autowired
-  private PostRepository postRepository;
+  private final PostRepository postRepository;
 
-  @Autowired
-  private DrugServiceFeignClient drugService;
+  private final DrugServiceFeignClient drugService;
 
   public List<Post> getAllPosts() {
     return postRepository.findAll();

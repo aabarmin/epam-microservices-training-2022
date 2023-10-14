@@ -7,11 +7,10 @@ import com.epam.training.microservices.services.state.machine.delivery.model.Del
 import com.epam.training.microservices.services.state.machine.delivery.model.DeliveryState;
 import java.util.EnumSet;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.StateMachine;
-import org.springframework.statemachine.config.EnableStateMachine;
 import org.springframework.statemachine.config.EnableStateMachineFactory;
 import org.springframework.statemachine.config.EnumStateMachineConfigurerAdapter;
 import org.springframework.statemachine.config.builders.StateMachineConfigurationConfigurer;
@@ -23,18 +22,16 @@ import org.springframework.statemachine.state.State;
 import org.springframework.statemachine.transition.Transition;
 
 @Configuration
+@RequiredArgsConstructor
 @EnableStateMachineFactory
 public class DeliveryStateMachineConfiguration
     extends EnumStateMachineConfigurerAdapter<DeliveryState, DeliveryEvent> {
 
-  @Autowired
-  private OnRejectAction rejectAction;
+  private final OnRejectAction rejectAction;
 
-  @Autowired
-  private OnStartDeliveryAction startDeliveryAction;
+  private final OnStartDeliveryAction startDeliveryAction;
 
-  @Autowired
-  private OnCompleteDeliveryAction completeDeliveryAction;
+  private final OnCompleteDeliveryAction completeDeliveryAction;
 
   @Override
   public void configure(StateMachineConfigurationConfigurer<DeliveryState, DeliveryEvent> config) throws Exception {

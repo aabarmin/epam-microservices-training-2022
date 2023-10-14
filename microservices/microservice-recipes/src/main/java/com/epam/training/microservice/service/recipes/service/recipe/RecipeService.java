@@ -5,7 +5,7 @@ import com.epam.training.microservice.service.recipes.model.OutgoingRecipe;
 import com.epam.training.microservice.service.recipes.model.Recipe;
 import com.epam.training.microservice.service.recipes.model.Recipient;
 import com.epam.training.microservice.service.recipes.repository.RecipeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,15 +15,13 @@ import java.util.Optional;
 import static com.google.common.base.Preconditions.checkArgument;
 
 @Service
+@RequiredArgsConstructor
 public class RecipeService {
-    @Autowired
-    private RecipeRepository recipeRepository;
+    private final RecipeRepository recipeRepository;
 
-    @Autowired
-    private OutgoingRecipeService outgoingRecipeService;
+    private final OutgoingRecipeService outgoingRecipeService;
 
-//    @Autowired
-//    private StreamBridge streamBridge;
+//    private final StreamBridge streamBridge;
 
     @Transactional
     public Recipe save(Recipe recipe) {

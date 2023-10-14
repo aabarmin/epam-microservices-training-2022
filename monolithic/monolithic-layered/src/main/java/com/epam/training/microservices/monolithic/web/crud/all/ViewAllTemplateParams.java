@@ -1,7 +1,6 @@
 package com.epam.training.microservices.monolithic.web.crud.all;
 
 import com.epam.training.microservices.monolithic.web.crud.all.column.TextColumnModel;
-import java.util.Collection;
 import java.util.List;
 import lombok.Builder;
 import lombok.Data;

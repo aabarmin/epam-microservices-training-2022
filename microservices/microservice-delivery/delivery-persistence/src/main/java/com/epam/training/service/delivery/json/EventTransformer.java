@@ -7,14 +7,14 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.Optional;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class EventTransformer {
-  @Autowired
-  private EventEntityRepository repository;
+  private final EventEntityRepository repository;
 
   private Gson gson;
 

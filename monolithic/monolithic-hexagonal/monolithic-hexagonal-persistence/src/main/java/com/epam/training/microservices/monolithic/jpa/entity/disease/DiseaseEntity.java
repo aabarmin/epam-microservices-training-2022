@@ -1,6 +1,5 @@
 package com.epam.training.microservices.monolithic.jpa.entity.disease;
 
-import com.epam.training.microservices.monolithic.model.disease.Symptom;
 import com.google.common.collect.Sets;
 import java.util.Set;
 import jakarta.persistence.CascadeType;
@@ -16,7 +15,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 /**
- * Diseases. 
+ * Diseases.
  */
 @Data
 @Entity
@@ -29,12 +28,12 @@ public class DiseaseEntity {
     /**
      * Name of the disease.
      */
-    private String name; 
+    private String name;
 
     /**
-     * Description of the disease. 
+     * Description of the disease.
      */
-    private String description; 
+    private String description;
 
     /**
      * A collection of symptoms related to the disease.

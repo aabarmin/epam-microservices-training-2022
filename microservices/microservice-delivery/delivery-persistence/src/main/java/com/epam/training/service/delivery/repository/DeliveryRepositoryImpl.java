@@ -9,19 +9,17 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class DeliveryRepositoryImpl implements DeliveryRepository {
-  @Autowired
-  private EventEntityRepository repository;
+  private final EventEntityRepository repository;
 
-  @Autowired
-  private DeliveryAggregateFactory factory;
+  private final DeliveryAggregateFactory factory;
 
-  @Autowired
-  private EventTransformer eventTransformer;
+  private final EventTransformer eventTransformer;
 
   @Override
   public Optional<DeliveryAggregate> findOne(Long id) {

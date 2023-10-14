@@ -5,7 +5,7 @@ import com.epam.training.microservice.service.recipes.model.Recipe;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -13,12 +13,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component
+@RequiredArgsConstructor
 public class OutgoingRecipeSender {
-  @Autowired
-  private OutgoingRecipeService outgoingRecipeService;
+  private final OutgoingRecipeService outgoingRecipeService;
 
-  @Autowired
-  private StreamBridge streamBridge;
+  private final StreamBridge streamBridge;
 
   @Transactional
   @Scheduled(initialDelay = 1_000, fixedDelay = 10_000)

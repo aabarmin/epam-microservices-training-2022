@@ -4,7 +4,6 @@ import com.epam.training.microservices.monolithic.model.pharmacy.Pharmacy;
 import com.google.common.collect.Sets;
 import java.util.Set;
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -35,7 +34,7 @@ public class Delivery {
     /**
      * Address of the com.epam.training.service.delivery.
      */
-    private String addressLine; 
+    private String addressLine;
 
     /**
      * Status of the com.epam.training.service.delivery.
