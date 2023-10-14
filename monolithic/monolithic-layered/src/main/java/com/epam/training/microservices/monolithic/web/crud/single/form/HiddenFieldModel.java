@@ -1,6 +1,5 @@
 package com.epam.training.microservices.monolithic.web.crud.single.form;
 
-import java.util.function.Function;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

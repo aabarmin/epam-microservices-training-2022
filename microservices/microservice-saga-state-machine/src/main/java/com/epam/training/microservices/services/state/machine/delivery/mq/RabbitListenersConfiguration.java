@@ -3,14 +3,14 @@ package com.epam.training.microservices.services.state.machine.delivery.mq;
 import com.epam.training.microservices.services.state.machine.delivery.model.OrderEvent;
 import com.epam.training.microservices.services.state.machine.delivery.service.DeliveryService;
 import java.util.function.Consumer;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@RequiredArgsConstructor
 public class RabbitListenersConfiguration {
-  @Autowired
-  private DeliveryService deliveryService;
+  private final DeliveryService deliveryService;
 
   @Bean
   public Consumer<OrderEvent> confirmOrder() {

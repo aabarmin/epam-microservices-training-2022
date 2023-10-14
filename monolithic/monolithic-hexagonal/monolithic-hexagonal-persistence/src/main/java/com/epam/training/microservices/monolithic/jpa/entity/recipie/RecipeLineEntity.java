@@ -1,7 +1,6 @@
 package com.epam.training.microservices.monolithic.jpa.entity.recipie;
 
 import com.epam.training.microservices.monolithic.jpa.entity.drug.DrugEntity;
-import com.epam.training.microservices.monolithic.model.recipie.Recipe;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +13,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * One line of the recipie. 
+ * One line of the recipie.
  */
 @Data
 @Entity
@@ -33,19 +32,19 @@ public class RecipeLineEntity {
     private RecipeEntity recipe;
 
     /**
-     * A drug to apply. 
+     * A drug to apply.
      */
     @JoinColumn(name = "drug_id")
     @ManyToOne(fetch = FetchType.EAGER)
     private DrugEntity drug;
 
     /**
-     * Amount of drug to apply. 
+     * Amount of drug to apply.
      */
-    private Long amount; 
+    private Long amount;
 
     /**
-     * What exactly to be done. 
+     * What exactly to be done.
      */
     private String instruction;
 }

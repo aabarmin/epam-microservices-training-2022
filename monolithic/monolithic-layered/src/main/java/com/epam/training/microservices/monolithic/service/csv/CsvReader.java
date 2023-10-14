@@ -1,7 +1,6 @@
 package com.epam.training.microservices.monolithic.service.csv;
 
 import java.util.Collection;
-import java.util.Collections;
 
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
@@ -24,8 +23,8 @@ public class CsvReader {
 
     @SneakyThrows
     private <T> Collection<T> readResource(Resource resource, Class<T> targetType, boolean includeHeaders) {
-        CsvSchema schema = includeHeaders ? 
-            CsvSchema.emptySchema().withHeader() : 
+        CsvSchema schema = includeHeaders ?
+            CsvSchema.emptySchema().withHeader() :
             CsvSchema.emptySchema().withoutHeader();
 
         MappingIterator<T> values = new CsvMapper().readerFor(targetType)

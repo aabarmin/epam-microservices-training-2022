@@ -5,7 +5,6 @@ import com.epam.training.microservices.monolithic.model.delivery.Delivery;
 import com.epam.training.microservices.monolithic.web.model.DeliveryModel;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.springframework.stereotype.Component;
 
 @Mapper(config = MapperConfiguration.class)
 public interface DeliveryModelTransformer {
