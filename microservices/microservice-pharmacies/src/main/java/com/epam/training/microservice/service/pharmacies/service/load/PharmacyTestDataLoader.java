@@ -54,7 +54,7 @@ public class PharmacyTestDataLoader implements CommandLineRunner {
                     availableDrug.setPharmacy(pharmacy);
                     availableDrug.setDrugId(
                             drugClient.getDrugIdByName(available.getDrugName())
-                                .orElseGet(() -> -1L)
+                                .orElse(-1L)
                     );
                     availableDrug.setAmount(available.getAmount());
                     return availableDrug;
