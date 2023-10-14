@@ -11,7 +11,7 @@ import com.epam.training.microservice.service.recipes.service.recipe.RecipeServi
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Cleanup;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.Resource;
@@ -23,24 +23,20 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
+@RequiredArgsConstructor
 public class TestDataLoader implements CommandLineRunner {
     @Value("classpath:test-data/doctor-and-recipies.json")
     private Resource doctorResource;
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
 
-    @Autowired
-    private DoctorRepository doctorRepository;
+    private final DoctorRepository doctorRepository;
 
-    @Autowired
-    private RecipientRepository recipientRepository;
+    private final RecipientRepository recipientRepository;
 
-    @Autowired
-    private RecipeService recipeService;
+    private final RecipeService recipeService;
 
-    @Autowired
-    private DrugService drugService;
+    private final DrugService drugService;
 
     @Override
     public void run(String... args) throws Exception {

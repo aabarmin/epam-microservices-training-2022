@@ -2,10 +2,7 @@ package com.epam.training.microservices.services.state.machine.delivery.service;
 
 import com.epam.training.microservices.services.state.machine.delivery.model.DeliveryEvent;
 import com.epam.training.microservices.services.state.machine.delivery.model.DeliveryState;
-import java.util.function.Consumer;
-import jakarta.annotation.PostConstruct;
 import lombok.SneakyThrows;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.StateMachinePersist;
 import org.springframework.statemachine.config.StateMachineFactory;
@@ -13,19 +10,20 @@ import org.springframework.statemachine.persist.DefaultStateMachinePersister;
 import org.springframework.statemachine.persist.StateMachinePersister;
 import org.springframework.stereotype.Component;
 
+import java.util.function.Consumer;
+
 @Component
 public class DeliveryService {
-  @Autowired
-  private StateMachineFactory<DeliveryState, DeliveryEvent> factory;
+  private final StateMachineFactory<DeliveryState, DeliveryEvent> factory;
 
-  @Autowired
-  private StateMachinePersist<DeliveryState, DeliveryEvent, String> repository;
+  private final StateMachinePersister<DeliveryState, DeliveryEvent, String> persister;
 
-  private StateMachinePersister<DeliveryState, DeliveryEvent, String> persister;
-
-  @PostConstruct
-  public void init() {
-    persister = new DefaultStateMachinePersister<>(repository);
+  public DeliveryService(
+          StateMachineFactory<DeliveryState, DeliveryEvent> factory,
+          StateMachinePersist<DeliveryState, DeliveryEvent, String> repository
+  ) {
+    this.factory = factory;
+    this.persister = new DefaultStateMachinePersister<>(repository);
   }
 
   @SneakyThrows

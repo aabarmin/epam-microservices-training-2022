@@ -5,21 +5,19 @@ import com.fasterxml.jackson.databind.ObjectReader;
 import java.io.InputStream;
 import java.util.List;
 import lombok.Cleanup;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class PostLoader implements CommandLineRunner {
-  @Autowired
-  private ObjectMapper objectMapper;
+  private final ObjectMapper objectMapper;
 
-  @Autowired
-  private PostRepository postRepository;
+  private final PostRepository postRepository;
 
-  @Autowired
-  private AuthorRepository authorRepository;
+  private final AuthorRepository authorRepository;
 
   @Override
   public void run(String... args) throws Exception {
