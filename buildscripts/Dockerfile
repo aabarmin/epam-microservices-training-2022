@@ -1,4 +1,4 @@
-FROM amazoncorretto:11
+FROM amazoncorretto:21
 LABEL maintainer="Aleksandr_Barmin@epam.com"
 
 ARG module_path
