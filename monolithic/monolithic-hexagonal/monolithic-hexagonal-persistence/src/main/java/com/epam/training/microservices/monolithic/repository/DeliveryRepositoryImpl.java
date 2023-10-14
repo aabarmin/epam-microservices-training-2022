@@ -6,7 +6,6 @@ import com.epam.training.microservices.monolithic.model.delivery.Delivery;
 import com.epam.training.microservices.monolithic.transformer.DeliveryTransformer;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component

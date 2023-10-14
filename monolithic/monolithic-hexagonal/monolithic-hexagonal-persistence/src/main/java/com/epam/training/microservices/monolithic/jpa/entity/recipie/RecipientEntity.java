@@ -1,6 +1,5 @@
 package com.epam.training.microservices.monolithic.jpa.entity.recipie;
 
-import com.epam.training.microservices.monolithic.model.recipie.Recipe;
 import com.google.common.collect.Sets;
 import java.util.Set;
 import jakarta.persistence.Entity;
@@ -13,7 +12,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 /**
- * 
+ *
  */
 @Data
 @Entity
@@ -24,10 +23,10 @@ public class RecipientEntity {
     private Long id;
 
     /**
-     * Recipient name, etc. 
+     * Recipient name, etc.
      */
-    private String firstName; 
-    private String lastName; 
+    private String firstName;
+    private String lastName;
 
     /**
      * A collection of recipes associated with this recipient.

@@ -1,9 +1,7 @@
 package com.epam.training.microservices.monolithic.jpa.entity.delivery;
 
 import com.epam.training.microservices.monolithic.jpa.entity.pharmacy.PharmacyEntity;
-import com.epam.training.microservices.monolithic.model.delivery.DeliveryLine;
 import com.epam.training.microservices.monolithic.model.delivery.DeliveryStatus;
-import com.epam.training.microservices.monolithic.model.pharmacy.Pharmacy;
 import com.google.common.collect.Sets;
 import java.util.Set;
 import jakarta.persistence.CascadeType;
@@ -37,7 +35,7 @@ public class DeliveryEntity {
     /**
      * Address of the com.epam.training.service.delivery.
      */
-    private String addressLine; 
+    private String addressLine;
 
     /**
      * Status of the com.epam.training.service.delivery.

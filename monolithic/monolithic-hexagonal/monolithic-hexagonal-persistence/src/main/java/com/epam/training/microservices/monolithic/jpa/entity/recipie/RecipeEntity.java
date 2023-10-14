@@ -1,8 +1,5 @@
 package com.epam.training.microservices.monolithic.jpa.entity.recipie;
 
-import com.epam.training.microservices.monolithic.model.recipie.Doctor;
-import com.epam.training.microservices.monolithic.model.recipie.RecipeLine;
-import com.epam.training.microservices.monolithic.model.recipie.Recipient;
 import com.google.common.collect.Sets;
 import java.time.LocalDate;
 import java.util.Set;
@@ -18,7 +15,7 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 /**
- * A recipie to apply. 
+ * A recipie to apply.
  */
 @Data
 @Entity
@@ -35,13 +32,13 @@ public class RecipeEntity {
     private DoctorEntity doctor;
 
     /**
-     * A recipient of the recipie. 
+     * A recipient of the recipie.
      */
     @ManyToOne(fetch = FetchType.EAGER)
     private RecipientEntity recipient;
 
     /**
-     * A content of the recipie. 
+     * A content of the recipie.
      */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipe", cascade = CascadeType.ALL)
     private Set<RecipeLineEntity> lines = Sets.newHashSet();

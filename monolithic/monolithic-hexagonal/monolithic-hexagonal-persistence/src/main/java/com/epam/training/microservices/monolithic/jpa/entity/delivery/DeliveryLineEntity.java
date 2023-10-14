@@ -1,8 +1,6 @@
 package com.epam.training.microservices.monolithic.jpa.entity.delivery;
 
 import com.epam.training.microservices.monolithic.jpa.entity.drug.DrugEntity;
-import com.epam.training.microservices.monolithic.model.delivery.Delivery;
-import com.epam.training.microservices.monolithic.model.drug.Drug;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -19,21 +17,21 @@ import lombok.Data;
 public class DeliveryLineEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id; 
+    private Long id;
 
     @JoinColumn(name = "delivery_id")
     @ManyToOne(fetch = FetchType.EAGER)
     private DeliveryEntity delivery;
 
     /**
-     * A drug to deliver. 
+     * A drug to deliver.
      */
     @JoinColumn(name = "drug_id")
     @ManyToOne(fetch = FetchType.EAGER)
     private DrugEntity drug;
 
     /**
-     * Amount of drug to deliver. 
+     * Amount of drug to deliver.
      */
     private Long amount;
 }
