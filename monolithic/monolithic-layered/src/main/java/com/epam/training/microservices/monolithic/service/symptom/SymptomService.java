@@ -1,7 +1,6 @@
 package com.epam.training.microservices.monolithic.service.symptom;
 
 import com.epam.training.microservices.monolithic.service.CrudService;
-import java.util.Collection;
 
 import com.epam.training.microservices.monolithic.model.disease.Symptom;
 

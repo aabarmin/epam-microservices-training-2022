@@ -4,7 +4,6 @@ import com.epam.training.microservices.monolithic.model.recipie.Doctor;
 import java.util.Optional;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
