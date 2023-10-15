@@ -23,8 +23,7 @@ public class DrugControllerIT extends MockMvcTest {
         MockHttpServletRequestBuilder viewAllReq = get("/drugs");
         this.mockMvc.perform(viewAllReq)
                 .andExpect(status().isOk())
-                // TODO uncomment after fix of #8
-                // .andExpect(content().string(containsString("<title>The Drug System - Drugs</title>")))
+                .andExpect(content().string(containsString("<title>The Drug System - Drugs</title>")))
                 .andExpect(content().string(containsString(">Drugs</h1>")))
                 .andExpect(content().string(containsString("<a href=\"/drugs/1\"")));
     }
@@ -37,8 +36,7 @@ public class DrugControllerIT extends MockMvcTest {
                 // uncomment to see HTML response body
                 // .andDo(MockMvcResultHandlers.print())
                 .andExpect(status().isOk())
-                // TODO uncomment after fix of #8
-                // .andExpect(content().string(containsString("<title>The Drug System - Edit Drug</title>")))
+                .andExpect(content().string(containsString("<title>The Drug System - Edit Drug</title>")))
                 .andExpect(content().string(containsString(">Edit Drug</h1>")))
                 .andExpect(content().string(containsString("Acetylcholinesterase inhibitors")))
                 .andExpect(content().string(containsString("<input type=\"hidden\" id=\"id\" name=\"id\" value=\"1\"/>")))

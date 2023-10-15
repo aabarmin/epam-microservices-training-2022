@@ -22,8 +22,7 @@ public class DeliveryControllerIT extends MockMvcTest {
         MockHttpServletRequestBuilder viewAllReq = get("/delivery");
         this.mockMvc.perform(viewAllReq)
                 .andExpect(status().isOk())
-                // TODO uncomment after fix of #8
-                // .andExpect(content().string(containsString("<title>The Drug System - Delivery</title>")))
+                .andExpect(content().string(containsString("<title>The Drug System - Delivery</title>")))
                 .andExpect(content().string(containsString(">Delivery</h1>")))
                 // TODO uncomment when #7 is fixed
                 // .andExpect(content().string(containsString("<a href=\"/delivery/1\"")))

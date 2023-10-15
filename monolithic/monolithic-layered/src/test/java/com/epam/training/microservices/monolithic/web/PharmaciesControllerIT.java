@@ -23,8 +23,7 @@ public class PharmaciesControllerIT extends MockMvcTest {
         MockHttpServletRequestBuilder viewAllReq = get("/pharmacies");
         this.mockMvc.perform(viewAllReq)
                 .andExpect(status().isOk())
-                // TODO uncomment after fix of #8
-                // .andExpect(content().string(containsString("<title>The Drug System - Pharmacies</title>")))
+                .andExpect(content().string(containsString("<title>The Drug System - Pharmacies</title>")))
                 .andExpect(content().string(containsString(">Pharmacies</h1>")))
                 .andExpect(content().string(containsString("<a href=\"/pharmacies/1\"")));
     }
@@ -35,8 +34,7 @@ public class PharmaciesControllerIT extends MockMvcTest {
         MockHttpServletRequestBuilder viewSingleReq = get("/pharmacies/1");
         this.mockMvc.perform(viewSingleReq)
                 .andExpect(status().isOk())
-                // TODO uncomment after fix of #8
-                // .andExpect(content().string(containsString("<title>The Drug System - Edit Pharmacy</title>")))
+                .andExpect(content().string(containsString("<title>The Drug System - Edit Pharmacy</title>")))
                 .andExpect(content().string(containsString(">Edit Pharmacy</h1>")))
                 .andExpect(content().string(containsString("Twimm")))
                 .andExpect(content().string(containsString("<input type=\"hidden\" id=\"id\" name=\"id\" value=\"1\"/>")))
