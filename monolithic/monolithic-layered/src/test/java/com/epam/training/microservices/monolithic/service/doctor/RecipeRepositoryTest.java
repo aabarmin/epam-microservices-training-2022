@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
 
 public class RecipeRepositoryTest extends BaseDataJpaTest {
 
@@ -26,14 +27,10 @@ public class RecipeRepositoryTest extends BaseDataJpaTest {
     @Test
     public void shouldSaveAndRetrieveRecipe() {
         // Arrange
-        Doctor doctor = new Doctor();
-        doctor.setFirstName("John");
-        doctor.setLastName("Doe");
+        Doctor doctor = mock();
         doctorRepository.save(doctor);
 
-        Recipient recipient = new Recipient();
-        recipient.setFirstName("Jane");
-        recipient.setLastName("Smith");
+        Recipient recipient = mock();
         recipientRepository.save(recipient);
 
         Recipe recipe = new Recipe();
