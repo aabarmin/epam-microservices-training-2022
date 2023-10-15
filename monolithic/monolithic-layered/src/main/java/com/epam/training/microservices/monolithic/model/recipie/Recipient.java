@@ -10,9 +10,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.ToString;
 
 /**
- * 
+ *
  */
 @Data
 @Entity
@@ -23,14 +24,15 @@ public class Recipient {
     private Long id;
 
     /**
-     * Recipient name, etc. 
+     * Recipient name, etc.
      */
-    private String firstName; 
-    private String lastName; 
+    private String firstName;
+    private String lastName;
 
     /**
      * A collection of recipes associated with this recipient.
      */
+    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY)
     private Set<Recipe> recipes = Sets.newHashSet();
 }

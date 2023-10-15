@@ -15,6 +15,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * Stores information about the delivery.
@@ -51,6 +52,7 @@ public class Delivery {
     /**
      * Content of the delivery.
      */
+    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "delivery")
     private Set<DeliveryLine> content = Sets.newHashSet();
 }

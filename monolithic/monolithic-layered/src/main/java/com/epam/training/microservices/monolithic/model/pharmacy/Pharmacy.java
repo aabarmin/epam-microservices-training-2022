@@ -11,6 +11,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @Entity
@@ -24,6 +25,7 @@ public class Pharmacy {
   private String name;
   private String address;
 
+  @ToString.Exclude
   @OneToMany(mappedBy = "pharmacy", cascade = CascadeType.ALL)
   private Set<PharmacyAvailable> available = Sets.newHashSet();
 }
