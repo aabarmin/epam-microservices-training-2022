@@ -62,12 +62,12 @@
 			<dependency>
 				<groupId>org.springdoc</groupId>
 				<artifactId>springdoc-openapi-ui</artifactId>
-				<version>1.5.9</version>
+				<version>1.7.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springdoc</groupId>
 				<artifactId>springdoc-openapi-data-rest</artifactId>
-				<version>1.5.9</version>
+				<version>1.7.0</version>
 			</dependency>
 			<dependency>
 				<groupId>com.graphql-java</groupId>
@@ -178,7 +178,7 @@
 						<path>
 							<groupId>org.springframework.boot</groupId>
 							<artifactId>spring-boot-configuration-processor</artifactId>
-							<version>2.6.2</version>
+							<version>${spring-boot.version}</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
