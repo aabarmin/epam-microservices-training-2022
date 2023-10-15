@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @SpringBootTest
 @AutoConfigureMockMvc
-abstract class MockMvcTest {
+public abstract class MockMvcTest {
 
     @Autowired
     protected MockMvc mockMvc;
