@@ -3,7 +3,7 @@ package com.epam.training.microservices.monolithic.service.doctor;
 import com.epam.training.microservices.monolithic.model.recipie.Doctor;
 import com.epam.training.microservices.monolithic.model.recipie.Recipe;
 import com.epam.training.microservices.monolithic.model.recipie.Recipient;
-import com.epam.training.microservices.monolithic.service.DataJpaTest;
+import com.epam.training.microservices.monolithic.service.BaseDataJpaTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class RecipeRepositoryTest extends DataJpaTest {
+public class RecipeRepositoryTest extends BaseDataJpaTest {
 
     @Autowired
     private RecipeRepository repository;

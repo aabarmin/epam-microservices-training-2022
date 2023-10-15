@@ -1,7 +1,7 @@
 package com.epam.training.microservices.monolithic.service.symptom;
 
 import com.epam.training.microservices.monolithic.model.disease.Symptom;
-import com.epam.training.microservices.monolithic.service.DataJpaTest;
+import com.epam.training.microservices.monolithic.service.BaseDataJpaTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,7 +10,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SymptomRepositoryTest extends DataJpaTest {
+public class SymptomRepositoryTest extends BaseDataJpaTest {
 
     @Autowired
     private SymptomRepository repository;
