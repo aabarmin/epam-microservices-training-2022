@@ -117,7 +117,7 @@ public class TestDataImportService implements ApplicationRunner {
           newDelivery.setAddressLine(order.getAddress());
           newDelivery.setStatus(order.getStatus());
 
-          final Set<DeliveryLine> deliveryLines = order.getContent()
+          final List<DeliveryLine> deliveryLines = order.getContent()
               .stream()
               .map(item -> {
                 final DeliveryLine newLine = new DeliveryLine();
@@ -126,7 +126,7 @@ public class TestDataImportService implements ApplicationRunner {
                 newLine.setDrug(drugService.findByName(item.getDrug()).get());
                 return newLine;
               })
-              .collect(Collectors.toSet());
+              .collect(Collectors.toList());
 
           newDelivery.setContent(deliveryLines);
 

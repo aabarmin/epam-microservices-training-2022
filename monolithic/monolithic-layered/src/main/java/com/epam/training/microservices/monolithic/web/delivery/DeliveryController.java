@@ -8,40 +8,50 @@ import com.epam.training.microservices.monolithic.web.crud.all.ViewAllTemplatePa
 import com.epam.training.microservices.monolithic.web.crud.all.column.LinkColumnModel;
 import com.epam.training.microservices.monolithic.web.crud.all.column.TextColumnModel;
 
+import com.epam.training.microservices.monolithic.web.crud.single.details.ViewSingleDetailsSupport;
+import com.epam.training.microservices.monolithic.web.crud.single.details.ViewSingleDetailsTemplateParams;
+import com.epam.training.microservices.monolithic.web.crud.single.form.HiddenFieldModel;
+import com.epam.training.microservices.monolithic.web.crud.single.form.SelectFieldModel;
+import com.epam.training.microservices.monolithic.web.crud.single.form.TextFieldModel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Arrays;
 
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/delivery")
-public class DeliveryController implements ViewAllSupport<Delivery> {
-  private final DeliveryService deliveryService;
-  private final DeliveryTransformer deliveryTransformer;
+public class DeliveryController implements ViewAllSupport<Delivery>, ViewSingleDetailsSupport<Delivery> {
+    private final DeliveryService deliveryService;
+    private final DeliveryTransformer deliveryTransformer;
 
-  @Override
-  public CrudService<Delivery> getService() {
-    return deliveryService;
-  }
+    @Override
+    public CrudService<Delivery> getService() {
+        return deliveryService;
+    }
 
-  @Override
-  public ViewAllTemplateParams getViewAllTemplateParams() {
-    return ViewAllTemplateParams.builder()
-        .title("Delivery")
-        .column(new LinkColumnModel<>("Address", Delivery::getAddressLine,
-            d -> "/com.epam.training.service.delivery/" + d.getId()))
-        .column(new TextColumnModel<Delivery>("Status", d -> d.getStatus().name()))
-        .build();
-  }
+    @Override
+    public ViewAllTemplateParams getViewAllTemplateParams() {
+        return ViewAllTemplateParams.builder()
+                .title("Delivery")
+                .column(new LinkColumnModel<>("Address", Delivery::getAddressLine, d -> "/delivery/" + d.getId()))
+                .column(new TextColumnModel<Delivery>("Status", d -> d.getStatus().name()))
+                .build();
+    }
 
-  @GetMapping("/{id}")
-  public ModelAndView editDelivery(ModelAndView modelAndView, @PathVariable("id") Long id) {
-    modelAndView.setViewName("delivery/edit");
-    modelAndView.addObject("delivery", deliveryTransformer.toModel(id));
-
-    return modelAndView;
-  }
+    @Override
+    public ViewSingleDetailsTemplateParams getViewSingleTemplateParams(Delivery parent) {
+        return ViewSingleDetailsTemplateParams.builder()
+                .title("Edit delivery")
+                .field(new HiddenFieldModel("id", "id"))
+                .field(new TextFieldModel("Address", "addressLine"))
+                .field(new TextFieldModel("Status", "status"))
+                .field(new SelectFieldModel("Pharmacy", "pharmacy",
+                        parent.getPharmacy().getId(), deliveryTransformer.getPharmacies()))
+                .headers(Arrays.asList("Drug", "Amount"))
+                .detailObjectName("content")
+                .details(deliveryTransformer.getContent(parent))
+                .build();
+    }
 }

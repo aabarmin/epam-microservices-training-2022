@@ -1,16 +1,14 @@
 package com.epam.training.microservices.monolithic.web.crud.single.form;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+public class HiddenFieldModel<T> extends TextFieldModel<T> {
 
-@Data
-@RequiredArgsConstructor
-public class HiddenFieldModel<T> implements FieldModel<T> {
-  private final String title;
-  private final String field;
+    public HiddenFieldModel(String title, String field) {
+        super(title, field);
+    }
 
-  @Override
-  public String getType() {
-    return "HIDDEN";
-  }
+    @Override
+    public String getType() {
+        return "HIDDEN";
+    }
+
 }
