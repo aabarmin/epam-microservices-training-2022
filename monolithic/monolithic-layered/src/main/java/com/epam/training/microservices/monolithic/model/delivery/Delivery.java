@@ -17,7 +17,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * Stores information about the com.epam.training.service.delivery.
+ * Stores information about the delivery.
  */
 @Data
 @Entity
@@ -32,12 +32,12 @@ public class Delivery {
     private Long id;
 
     /**
-     * Address of the com.epam.training.service.delivery.
+     * Address of the delivery.
      */
     private String addressLine;
 
     /**
-     * Status of the com.epam.training.service.delivery.
+     * Status of the delivery.
      */
     private DeliveryStatus status;
 
@@ -49,7 +49,7 @@ public class Delivery {
     private Pharmacy pharmacy;
 
     /**
-     * Content of the com.epam.training.service.delivery.
+     * Content of the delivery.
      */
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "delivery")
     private Set<DeliveryLine> content = Sets.newHashSet();
