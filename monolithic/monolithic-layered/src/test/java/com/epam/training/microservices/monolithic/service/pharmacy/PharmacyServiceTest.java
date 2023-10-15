@@ -13,6 +13,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -39,6 +42,7 @@ class PharmacyServiceTest {
 
         Pharmacy savedPharmacy = pharmacyService.save(pharmacy);
 
+        verify(pharmacyRepository, times(1)).save(eq(pharmacy));
         assertEquals(pharmacy, savedPharmacy);
     }
 

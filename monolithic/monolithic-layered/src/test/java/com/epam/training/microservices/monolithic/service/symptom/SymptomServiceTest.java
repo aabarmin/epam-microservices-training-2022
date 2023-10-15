@@ -13,6 +13,9 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -40,6 +43,7 @@ class SymptomServiceTest {
 
         Symptom savedSymptom = symptomService.save(symptom);
 
+        verify(symptomRepository, times(1)).save(eq(symptom));
         assertEquals(symptom, savedSymptom);
     }
 
