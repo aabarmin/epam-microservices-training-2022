@@ -23,6 +23,10 @@ import lombok.ToString;
 @Data
 @Entity
 @Table(name = "deliveries")
+@ToString(exclude = {
+    "pharmacy",
+    "content"
+})
 @EqualsAndHashCode(exclude = {
     "pharmacy",
     "content"
@@ -52,7 +56,6 @@ public class Delivery {
     /**
      * Content of the delivery.
      */
-    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "delivery")
     private Set<DeliveryLine> content = Sets.newHashSet();
 }

@@ -16,6 +16,7 @@ import lombok.ToString;
 @Data
 @Entity
 @Table(name = "pharmacies")
+@ToString(exclude = "available")
 @EqualsAndHashCode(exclude = "available")
 public class Pharmacy {
   @Id
@@ -25,7 +26,6 @@ public class Pharmacy {
   private String name;
   private String address;
 
-  @ToString.Exclude
   @OneToMany(mappedBy = "pharmacy", cascade = CascadeType.ALL)
   private Set<PharmacyAvailable> available = Sets.newHashSet();
 }

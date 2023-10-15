@@ -13,10 +13,11 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
- *
+ * A recipient of the recipie.
  */
 @Data
 @Entity
+@ToString(exclude = "recipes")
 @Table(name = "recipients")
 public class Recipient {
     @Id
@@ -32,7 +33,6 @@ public class Recipient {
     /**
      * A collection of recipes associated with this recipient.
      */
-    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY)
     private Set<Recipe> recipes = Sets.newHashSet();
 }

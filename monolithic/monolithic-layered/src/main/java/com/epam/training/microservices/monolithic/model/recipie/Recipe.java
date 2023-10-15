@@ -20,6 +20,7 @@ import lombok.ToString;
  */
 @Data
 @Entity
+@ToString(exclude = "lines")
 @Table(name = "recipes")
 public class Recipe {
     @Id
@@ -41,7 +42,6 @@ public class Recipe {
     /**
      * A content of the recipie.
      */
-    @ToString.Exclude
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipe", cascade = CascadeType.ALL)
     private Set<RecipeLine> lines = Sets.newHashSet();
 
