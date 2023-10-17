@@ -16,6 +16,16 @@ $ mvn spring-boot:run
 
 All the dependencies will be downloaded, the app will be built and started. 
 
+Tests
+=
+
+For monolithic layered application:
+
+```shell
+cd monolithic/monolithic-layered
+mvn test
+```
+
 Monolithic Layered Application
 =
 

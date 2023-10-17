@@ -10,12 +10,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.ToString;
 
 /**
- * 
+ * A recipient of the recipie.
  */
 @Data
 @Entity
+@ToString(exclude = "recipes")
 @Table(name = "recipients")
 public class Recipient {
     @Id
@@ -23,10 +25,10 @@ public class Recipient {
     private Long id;
 
     /**
-     * Recipient name, etc. 
+     * Recipient name, etc.
      */
-    private String firstName; 
-    private String lastName; 
+    private String firstName;
+    private String lastName;
 
     /**
      * A collection of recipes associated with this recipient.

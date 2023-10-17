@@ -13,12 +13,14 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.ToString;
 
 /**
- * A recipie to apply. 
+ * A recipie to apply.
  */
 @Data
 @Entity
+@ToString(exclude = "lines")
 @Table(name = "recipes")
 public class Recipe {
     @Id
@@ -29,16 +31,16 @@ public class Recipe {
      * A doctor who issues the recipie.
      */
     @ManyToOne(fetch = FetchType.EAGER)
-    private Doctor doctor; 
+    private Doctor doctor;
 
     /**
-     * A recipient of the recipie. 
+     * A recipient of the recipie.
      */
     @ManyToOne(fetch = FetchType.EAGER)
     private Recipient recipient;
 
     /**
-     * A content of the recipie. 
+     * A content of the recipie.
      */
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipe", cascade = CascadeType.ALL)
     private Set<RecipeLine> lines = Sets.newHashSet();
