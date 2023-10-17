@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{/template.html}">
+<head>
+    <title>${pageTitle}</title>
+</head>
+<body>
+<div th:fragment="details">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table">
+                <tr>
+                    <th:block th:each="header : ${templateParams.headers}">
+                        <th th:text="${header}"></th>
+                    </th:block>
+
+                </tr>
+                <tr th:each="row, rowStat : ${templateParams.details}">
+                    <th:block th:each="field : ${row.fields}">
+                        <td>
+                            <input type="hidden" th:if="${field.type == 'HIDDEN'}"
+                                   th:field="*{__${templateParams.detailObjectName}__[__${rowStat.index}__].__${field.field}__}"/>
+                            <input th:if="${field.type == 'TEXT'}" type="text" class="form-control"
+                                   th:field="*{__${templateParams.detailObjectName}__[__${rowStat.index}__].__${field.field}__}"/>
+
+                            <select th:if="${field.type == 'SELECT'}"
+                                    th:id="__${templateParams.detailObjectName}____${rowStat.index}__.__${field.field}__"
+                                    th:name="__${templateParams.detailObjectName}__[__${rowStat.index}__].__${field.field}__"
+                                    class="form-control">
+                                <option th:each="option : ${field.content}" th:value="${option.id}"
+                                        th:text="${option.value}"
+                                        th:selected="${option.id} == ${field.value}"></option>
+                            </select>
+
+                        </td>
+                    </th:block>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

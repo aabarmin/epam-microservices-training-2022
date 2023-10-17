@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{/template.html}">
+<head>
+    <title>${pageTitle}</title>
+</head>
+<body>
+<section layout:fragment="custom-content">
+    <h1 th:text="${pageTitle}" />
+
+    <form th:object="${item}" method="post" th:action="@{__${submitTarget}__}">
+        <div th:replace="common/single/item :: item"></div>
+        <div class="row">
+            <div class="col-sm-12">
+                <a th:href="@{__${submitTarget}__}" class="btn btn-link">Back</a>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </form>
+
+</section>
+</body>
+</html>

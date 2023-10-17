@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{/template.html}">
+<head>
+    <title>${pageTitle}</title>
+</head>
+<body>
+
+<div th:fragment="item">
+    <th:block th:each="field : ${templateParams.fields}">
+        <input type="hidden" th:field="*{__${field.field}__}"
+               th:if="${field.type == 'HIDDEN'}"/>
+
+        <div class="row" th:if="${field.type == 'TEXT'}">
+            <label class="col-sm-2 col-form-label" th:text="${field.title}"/>
+            <div class="col-sm-10">
+                <input type="text" class="form-control"
+                       th:field="*{__${field.field}__}"/>
+            </div>
+        </div>
+
+        <div class="row" th:if="${field.type == 'SELECT'}">
+            <label class="col-sm-2 col-form-label" th:text="${field.title}"/>
+            <div class="col-sm-10">
+                <select th:id="${field.field}" th:name="${field.field}" class="form-control">
+                    <option th:each="option : ${field.content}" th:value="${option.id}" th:text="${option.value}"
+                            th:selected="${option.id} == ${field.value}"></option>
+                </select>
+            </div>
+        </div>
+    </th:block>
+</div>
+</body>
+</html>

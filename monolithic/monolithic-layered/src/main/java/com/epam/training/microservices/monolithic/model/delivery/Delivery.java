@@ -1,8 +1,9 @@
 package com.epam.training.microservices.monolithic.model.delivery;
 
 import com.epam.training.microservices.monolithic.model.pharmacy.Pharmacy;
-import com.google.common.collect.Sets;
-import java.util.Set;
+
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -57,5 +58,5 @@ public class Delivery {
      * Content of the delivery.
      */
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "delivery")
-    private Set<DeliveryLine> content = Sets.newHashSet();
+    private List<DeliveryLine> content;
 }
