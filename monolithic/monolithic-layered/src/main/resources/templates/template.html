@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">The Drug System</title>
 	<link th:href="@{/webjars/bootstrap/5.0.1/css/bootstrap.css}" rel="stylesheet" />
@@ -9,27 +10,27 @@
 		<div class="container-fluid">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/drugs/}">
+					<a class="nav-link" th:href="@{/drugs}">
 						Drugs
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/delivery/}">
+					<a class="nav-link" th:href="@{/delivery}">
 						Delivery
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/pharmacies/}">
+					<a class="nav-link" th:href="@{/pharmacies}">
 						Pharmacies
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/diseases/}">
+					<a class="nav-link" th:href="@{/diseases}">
 						Diseases
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/symptoms/}">
+					<a class="nav-link" th:href="@{/symptoms}">
 						Symptoms
 					</a>
 				</li>
