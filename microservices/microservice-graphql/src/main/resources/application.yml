@@ -12,5 +12,8 @@ management:
         include: '*'
 
 spring:
+  graphql:
+    graphiql:
+      enabled: true
   zipkin:
     base-url: ${ZIPKIN_URL:http://localhost:9411}
