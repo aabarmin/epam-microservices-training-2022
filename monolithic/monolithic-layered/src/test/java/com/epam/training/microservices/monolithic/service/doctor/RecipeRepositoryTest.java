@@ -3,9 +3,10 @@ package com.epam.training.microservices.monolithic.service.doctor;
 import com.epam.training.microservices.monolithic.model.recipie.Doctor;
 import com.epam.training.microservices.monolithic.model.recipie.Recipe;
 import com.epam.training.microservices.monolithic.model.recipie.Recipient;
-import com.epam.training.microservices.monolithic.service.BaseDataJpaTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import java.time.LocalDate;
 import java.util.Optional;
@@ -13,7 +14,10 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
-public class RecipeRepositoryTest extends BaseDataJpaTest {
+@DataJpaTest
+public class RecipeRepositoryTest {
+    @Autowired
+    private TestEntityManager entityManager;
 
     @Autowired
     private RecipeRepository repository;

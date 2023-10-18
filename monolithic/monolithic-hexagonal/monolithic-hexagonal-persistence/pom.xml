@@ -9,9 +9,12 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.epam.microservices.monolithic</groupId>
     <artifactId>monolithic-hexagonal-persistence</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+    </properties>
 
     <dependencies>
         <dependency>
