@@ -1,9 +1,10 @@
 package com.epam.training.microservices.monolithic.service.disease;
 
 import com.epam.training.microservices.monolithic.model.disease.Disease;
-import com.epam.training.microservices.monolithic.service.BaseDataJpaTest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import java.util.Optional;
 
@@ -11,7 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class DiseaseRepositoryTest extends BaseDataJpaTest {
+@DataJpaTest
+public class DiseaseRepositoryTest {
+    @Autowired
+    private TestEntityManager entityManager;
 
     @Autowired
     private DiseaseRepository repository;

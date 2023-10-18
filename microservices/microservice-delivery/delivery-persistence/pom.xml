@@ -15,6 +15,10 @@
 
     <name>microservice-delivery-persistence</name>
 
+    <properties>
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.epam.microservices.microservice.delivery</groupId>
