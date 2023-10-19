@@ -43,7 +43,7 @@ public class DeliveryController implements ViewAllSupport<Delivery>, ViewSingleD
     @Override
     public ViewSingleDetailsTemplateParams getViewSingleTemplateParams(Delivery parent) {
         return ViewSingleDetailsTemplateParams.builder()
-                .title("Edit delivery")
+                .title("Edit Delivery")
                 .field(new HiddenFieldModel("id", "id"))
                 .field(new TextFieldModel("Address", "addressLine"))
                 .field(new TextFieldModel("Status", "status"))

@@ -35,9 +35,9 @@ public class DeliveryControllerIT extends MockMvcTest {
         MockHttpServletRequestBuilder editDeliveryReq = get("/delivery/1");
         this.mockMvc.perform(editDeliveryReq)
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("<title>The Drug System - Delivery</title>")))
-                .andExpect(content().string(containsString("<h1>Edit Delivery</h1>")))
-                .andExpect(content().string(containsString("<input type=\"hidden\" id=\"id\" name=\"id\" value=\"1\" />")))
+                .andExpect(content().string(containsString("<title>The Drug System - Edit Delivery</title>")))
+                .andExpect(content().string(containsString(">Edit Delivery</h1>")))
+                .andExpect(content().string(containsString("<input type=\"hidden\" id=\"id\" name=\"id\" value=\"1\"")))
                 .andExpect(content().string(containsString("1 Cherokee Hill")))
                 .andExpect(content().string(containsString("<button type=\"submit\" class=\"btn btn-primary\">Save</button>")))
                 .andExpect(content().string(containsString("<a href=\"/delivery\" class=\"btn btn-link\">Back</a>")));
