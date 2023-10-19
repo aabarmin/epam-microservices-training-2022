@@ -39,7 +39,6 @@ public class SymptomControllerIT extends MockMvcTest {
                 .andExpect(content().string(containsString("<button type=\"submit\" class=\"btn btn-primary\">Save</button>")));
     }
 
-    @Disabled("FIXME Enable test when #10 is fixed")
     @Test
     @DisplayName("Test saveSingle endpoint")
     public void shouldSaveSymptomAndRedirect() throws Exception {
