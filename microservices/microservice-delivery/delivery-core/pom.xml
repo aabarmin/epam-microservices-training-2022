@@ -14,4 +14,8 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <name>microservice-delivery-core</name>
+
+    <properties>
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+    </properties>
 </project>

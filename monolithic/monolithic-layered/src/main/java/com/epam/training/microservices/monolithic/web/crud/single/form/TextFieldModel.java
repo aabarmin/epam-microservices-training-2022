@@ -1,8 +1,15 @@
 package com.epam.training.microservices.monolithic.web.crud.single.form;
 
-public class TextFieldModel<T> extends HiddenFieldModel<T> {
+import lombok.Data;
+
+@Data
+public class TextFieldModel<T> implements FieldModel<T> {
+  private final String title;
+  private final String field;
+
   public TextFieldModel(String title, String field) {
-    super(title, field);
+    this.title = title;
+    this.field = field;
   }
 
   @Override

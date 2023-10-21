@@ -11,6 +11,13 @@
 
 	<packaging>pom</packaging>
 
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.1.4</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
 	<modules>
 		<module>monolithic</module>
 		<module>microservices</module>
@@ -27,13 +34,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring-boot.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
@@ -62,27 +62,12 @@
 			<dependency>
 				<groupId>org.springdoc</groupId>
 				<artifactId>springdoc-openapi-ui</artifactId>
-				<version>1.5.9</version>
+				<version>1.7.0</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springdoc</groupId>
 				<artifactId>springdoc-openapi-data-rest</artifactId>
-				<version>1.5.9</version>
-			</dependency>
-			<dependency>
-				<groupId>com.graphql-java</groupId>
-				<artifactId>graphql-spring-boot-starter</artifactId>
-				<version>5.0.2</version>
-			</dependency>
-			<dependency>
-				<groupId>com.graphql-java</groupId>
-				<artifactId>graphql-java-tools</artifactId>
-				<version>5.2.4</version>
-			</dependency>
-			<dependency>
-				<groupId>com.graphql-java</groupId>
-				<artifactId>graphiql-spring-boot-starter</artifactId>
-				<version>5.0.2</version>
+				<version>1.7.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -136,11 +121,6 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<version>3.1.4</version>
-				</plugin>
-				<plugin>
 					<groupId>com.github.spotbugs</groupId>
 					<artifactId>spotbugs-maven-plugin</artifactId>
 					<version>4.5.2.0</version>
@@ -149,6 +129,10 @@
 		</pluginManagement>
 
 		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 			<plugin>
 				<groupId>com.github.spotbugs</groupId>
 				<artifactId>spotbugs-maven-plugin</artifactId>
@@ -159,6 +143,7 @@
 				<version>3.11.0</version>
 				<configuration>
 					<release>${java.version}</release>
+					<parameters>true</parameters>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.mapstruct</groupId>
@@ -178,7 +163,7 @@
 						<path>
 							<groupId>org.springframework.boot</groupId>
 							<artifactId>spring-boot-configuration-processor</artifactId>
-							<version>2.6.2</version>
+							<version>${spring-boot.version}</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>

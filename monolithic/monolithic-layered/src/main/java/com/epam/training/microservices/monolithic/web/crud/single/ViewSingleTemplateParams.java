@@ -5,13 +5,14 @@ import java.util.List;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Singular;
+import lombok.experimental.SuperBuilder;
 
 @Data
-@Builder
+@SuperBuilder
 public class ViewSingleTemplateParams {
   private String title;
   @Builder.Default
-  private String viewName = "common/single";
+  protected String viewName = "common/single/item_only";
   @Singular
   private List<FieldModel> fields;
 }

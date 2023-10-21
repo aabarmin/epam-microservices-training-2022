@@ -11,10 +11,12 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Data
 @Entity
 @Table(name = "pharmacies")
+@ToString(exclude = "available")
 @EqualsAndHashCode(exclude = "available")
 public class Pharmacy {
   @Id

@@ -1,0 +1,6 @@
+mutation RenamePost($id:Int, $title:String) {
+    renamePost(id:$id, title: $title) {
+        id,
+        title
+    }
+}

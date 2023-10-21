@@ -30,7 +30,7 @@ public class DiseaseController implements CrudController<Disease> {
   @Override
   public ViewSingleTemplateParams getViewSingleTemplateParams() {
     return ViewSingleTemplateParams.builder()
-        .title("Edit disease")
+        .title("Edit Disease")
         .field(new HiddenFieldModel("id", "id"))
         .field(new TextFieldModel("Name", "name"))
         .build();
