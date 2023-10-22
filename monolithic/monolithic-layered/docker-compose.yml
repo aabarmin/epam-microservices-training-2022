@@ -1,9 +1,6 @@
 services:
   monolithic-layer-server:
     container_name: monolithic-layered-server
-    build:
-      context: ../../
-      dockerfile: monolithic/monolithic-layered/docker/DockerFile
-    image: monolithic-layered-server:latest
+    image: monolithic/monolithic-layered:latest
     ports:
       - "8080:8080"
