@@ -1,0 +1,8 @@
+FROM maven:3.9.5-eclipse-temurin-21
+WORKDIR /app
+COPY . /app
+WORKDIR /app/monolithic/monolithic-layered
+CMD ["mvn", "spring-boot:run"]
+
+
+

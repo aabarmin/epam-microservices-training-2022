@@ -1,16 +1,9 @@
-version: '2.4'
-
 services:
   monolithic-layer-server:
-    container_name: monolithic-layer-server
+    container_name: monolithic-layered-server
     build:
-      context: docker-monolithic-layer-server
-      dockerfile: Dockerfile
-    image: monolithic-layer-server:latest
+      context: ../../
+      dockerfile: monolithic/monolithic-layered/docker/DockerFile
+    image: monolithic-layered-server:latest
     ports:
-      - 18888:8080
-    networks:
-      - monolithic-layer-cloud-network
-networks:
-  monolithic-layer-cloud-network:
-    driver: bridge
+      - "8080:8080"
