@@ -50,3 +50,8 @@ docker build \
     --build-arg module_path=microservices/microservice-gateway \
     -t microservices/gateway:latest \
     -f ./Dockerfile ..
+
+docker build \
+    --build-arg module_path=monolithic/monolithic-layered \
+    -t monolithic/monolithic-layered:latest \
+    -f ./Dockerfile ..
