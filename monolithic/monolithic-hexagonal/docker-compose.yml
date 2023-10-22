@@ -1,0 +1,6 @@
+services:
+  monolithic-hexagonal-server:
+    container_name: monolithic-hexagonal-server
+    image: monolithic/monolithic-hexagonal:latest
+    ports:
+      - "8080:8080"

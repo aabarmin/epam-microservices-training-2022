@@ -55,3 +55,8 @@ docker build \
     --build-arg module_path=monolithic/monolithic-layered \
     -t monolithic/monolithic-layered:latest \
     -f ./Dockerfile ..
+
+docker build \
+    --build-arg module_path=monolithic/monolithic-hexagonal/monolithic-hexagonal-app \
+    -t monolithic/monolithic-hexagonal:latest \
+    -f ./Dockerfile ..
