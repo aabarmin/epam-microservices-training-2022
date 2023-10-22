@@ -3,6 +3,3 @@ WORKDIR /app
 COPY . /app
 WORKDIR /app/monolithic/monolithic-layered
 CMD ["mvn", "spring-boot:run"]
-
-
-
