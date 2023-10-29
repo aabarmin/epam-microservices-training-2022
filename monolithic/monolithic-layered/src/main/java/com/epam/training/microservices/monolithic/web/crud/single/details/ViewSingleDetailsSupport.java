@@ -1,5 +1,6 @@
 package com.epam.training.microservices.monolithic.web.crud.single.details;
 
+import com.epam.training.microservices.monolithic.exception.ResourceNotFoundException;
 import com.epam.training.microservices.monolithic.web.crud.CrudSupport;
 import com.epam.training.microservices.monolithic.web.crud.single.ViewSingleTemplateParams;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ public interface ViewSingleDetailsSupport<T> extends CrudSupport<T> {
   @Transactional
   default ModelAndView viewSingleDetails(ModelAndView modelAndView, @PathVariable("id") Long id) {
     final T parent = getService().findOne(id)
-            .orElseThrow(() -> new RuntimeException("No item with id " + id));
+            .orElseThrow(() -> new ResourceNotFoundException(getResourceName(), id));
 
     final ViewSingleTemplateParams templateParams = getViewSingleTemplateParams(parent);
 
