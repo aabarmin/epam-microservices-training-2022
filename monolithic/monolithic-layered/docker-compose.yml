@@ -1,0 +1,6 @@
+services:
+  monolithic-layer-server:
+    container_name: monolithic-layered-server
+    image: monolithic/monolithic-layered:latest
+    ports:
+      - "8080:8080"
