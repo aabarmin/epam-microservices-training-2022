@@ -5,3 +5,8 @@ spring:
     url: jdbc:h2:mem:monolithic-layered
   jpa:
     open-in-view: false
+server:
+  error:
+    path: /error
+    whitelabel:
+      enabled: false
