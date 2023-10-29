@@ -15,4 +15,18 @@ public interface CrudSupport<T> {
     Class<T> tClass = (Class<T>) GenericTypeResolver.resolveTypeArgument(getClass(), CrudSupport.class);
     return tClass.getSimpleName();
   }
+
+
+  @PostMapping("")
+  default String saveSingle(@ModelAttribute T item) {
+    getService().save(item);
+    return "redirect:" + getSubmitTarget();
+  }
+
+  default String getSubmitTarget() {
+    return Optional.ofNullable(this.getClass().getDeclaredAnnotation(RequestMapping.class))
+            .map(RequestMapping::value)
+            .map(values -> values[0])
+            .orElseThrow(() -> new RuntimeException("No RequestMapping annotation"));
+  }
 }
