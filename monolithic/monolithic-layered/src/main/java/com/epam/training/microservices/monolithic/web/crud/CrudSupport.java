@@ -16,7 +16,6 @@ public interface CrudSupport<T> {
     return tClass.getSimpleName();
   }
 
-
   @PostMapping("")
   default String saveSingle(@ModelAttribute T item) {
     getService().save(item);
