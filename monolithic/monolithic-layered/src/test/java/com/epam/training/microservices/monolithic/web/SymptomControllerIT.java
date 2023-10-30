@@ -50,12 +50,14 @@ public class SymptomControllerIT extends MockMvcTest {
                 .andExpect(redirectedUrl("/symptoms"));
     }
 
-    @Disabled("FIXME #28 https://github.com/aabarmin/epam-microservices-training-2022/issues/28")
     @Test
     @DisplayName("Test viewSingle for non-existent Symptom")
     public void shouldReturnNotFoundForNonExistentSymptom() throws Exception {
         MockHttpServletRequestBuilder viewSingleReq = get("/symptoms/404404");
         this.mockMvc.perform(viewSingleReq)
-                .andExpect(status().isNotFound());
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("<h4 class=\"alert-heading\"><i class=\"bi-exclamation-octagon-fill\"></i>Oops! Data not found</h4>")))
+                .andExpect(content().string(containsString("<p>Sorry, we couldn't find the <span >Symptom</span> with id: <span >404404</span></p>")))
+                .andExpect(content().string(containsString("<p class=\"mb-0\">Please provide the correct <span >Symptom</span> id</p>")));
     }
 }
