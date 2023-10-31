@@ -42,12 +42,14 @@ public class DeliveryControllerIT extends MockMvcTest {
                 .andExpect(content().string(containsString("<a href=\"/delivery\" class=\"btn btn-link\">Back</a>")));
     }
 
-    @Disabled("FIXME #28 https://github.com/aabarmin/epam-microservices-training-2022/issues/28")
     @Test
     @DisplayName("Test editDelivery for non-existent Delivery")
     public void shouldReturnNotFoundForNonExistentDelivery() throws Exception {
         MockHttpServletRequestBuilder editDeliveryReq = get("/delivery/404404");
         this.mockMvc.perform(editDeliveryReq)
-                .andExpect(status().isNotFound());
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("<h4 class=\"alert-heading\"><i class=\"bi-exclamation-octagon-fill\"></i>Oops! Data not found</h4>")))
+                .andExpect(content().string(containsString("<p>Sorry, we couldn't find the <span >Delivery</span> with id: <span >404404</span></p>")))
+                .andExpect(content().string(containsString("<p class=\"mb-0\">Please provide the correct <span >Delivery</span> id</p>")));
     }
 }

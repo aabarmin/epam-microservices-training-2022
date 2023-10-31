@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="template.html">
+<head>
+    <title th:text="${pageTitle}"></title>
+</head>
+<body>
+<section layout:fragment="custom-content">
+    <div class="m-4">
+        <div class="alert alert-danger">
+            <h4 class="alert-heading"><i class="bi-exclamation-octagon-fill"></i>Oops! Data not found</h4>
+            <p>Sorry, we couldn't find the <span th:text="${resourceName}" /> with id: <span th:text="${resourceId}" /></p>
+            <hr>
+            <p class="mb-0">Please provide the correct <span th:text="${resourceName}" /> id</p>
+        </div>
+    </div>
+</section>
+</body>
+</html>
